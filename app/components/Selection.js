@@ -10,7 +10,7 @@ const Selection = ({ titleText, descriptionText, image }) => {
             <Text style = {styles.descriptionBox}>
               {descriptionText}
             </Text>
-            <Image style = {styles.image} source={require({image})} />
+            <Image style = {styles.image} source={image} />
             <View style = {styles.sphere} onpress></View>
             
         </View>

@@ -3,11 +3,15 @@ import React from 'react'
 import Selection from '../components/Selection'
 
 export default function home() {
+
+
+
+
   return (
     <View style = {styles.contaier}>
         <View style = {styles.welcomePage}>
           <View>
-            <Image style = {styles.imageContainer} source={require('../../assets/images/smallIcon.png')}/>
+            <Image style = {styles.imageContainer} source={require('../../assets/images/icon.png')}/>
           </View>
             <Text style = {{fontSize: 40, left: 16, top: 70, width: 361, fontWeight: 700, position: 'absolute'}}>
               Welcome to Occupi
@@ -17,8 +21,8 @@ export default function home() {
             </Text>
         </View>
         <>
-          <Selection titleText={'Computer'} descriptionText={'Descriptionnnn'} image={'../../assets/images/testImage.jpg'} />
-          <Selection titleText={'Test'} descriptionText={'Descriptionnnn'} image={'../../assets/images/testImage.jpg'}/>
+          <Selection titleText={'Computer'} descriptionText={'Descriptionnnn'} image={require('../../assets/images/computer.png')} />
+          <Selection titleText={'Test'} descriptionText={'Descriptionnnn'} image={require('../../assets/images/testImage.jpg')}/>
         </>
     </View>
   )
