@@ -32,7 +32,7 @@ const styles = StyleSheet.create ({
     marginRight: 25,
     marginBottom: 40,
     padding: 1,
-    top: 193,
+    top: 0,
     borderColor: '#000',
     borderWidth: 1,
     borderRadius: 7,
@@ -48,7 +48,7 @@ titleBox: {
 },
 
 descriptionBox: {
-    width: 148,
+    width: 128,
     height: 41,
     fontSize: 14,
     fontWeight: 400,
@@ -74,7 +74,7 @@ descriptionBox: {
     position: 'absolute',
     top: 14,
     right: 10,
-    width: 120,
+    width: 100,
     height: 120,
   },
 });

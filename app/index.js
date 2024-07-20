@@ -1,5 +1,5 @@
 import { Unmatched } from 'expo-router';
-
+import Welcome from './Pages/welcome'
 import { View, Text, Image } from 'react-native'
 import React, { useEffect, useRef} from 'react'
 import Home from './Pages/login'
@@ -22,6 +22,6 @@ export default function app() {
   }, [])
 
   return (
-    <Home/>
+    <Welcome/>
   )
 }
