@@ -1,13 +1,12 @@
 import { View, Text, Image, StyleSheet, ScrollView, Pressable } from 'react-native'
 import {router} from 'expo-router'
-import React from 'react'
+import React, { useState } from 'react'
 import Selection from '../components/Selection'
 
 export default function home() {
 
-
   const cardsData = [
-    {
+    { 
       titleText: "Computers",
       descriptionText: "this is description for computers",
       imageURI: require('../../assets/images/computer.png')
@@ -27,7 +26,7 @@ export default function home() {
       descriptionText: "this is descripition for kinesiology",
       imageURI: require('../../assets/images/physical.webp')
     },
-]
+];
 
 
 
@@ -43,7 +42,7 @@ export default function home() {
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         {cardsData.map((card, index) => (
-          <Selection 
+          <Selection
             key={index} 
             titleText={card.titleText} 
             descriptionText={card.descriptionText} 
@@ -51,7 +50,13 @@ export default function home() {
           />
         ))}
       </ScrollView>
-
+      <View style = {styles.footer}>
+        <View style = {styles.confirmButtonContainer}>
+        <Pressable style = {styles.confirmButton}>
+          <Text>Confirm your choices?</Text>
+        </Pressable>
+        </View>
+      </View>
     </View>
   );
 }
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Ensures ScrollView takes up remaining space
   },
   footer:{
-    height: 60,
+    height: 70,
   },
   buttonContainer:{
 
@@ -103,5 +108,14 @@ const styles = StyleSheet.create({
     height: 50,
     top: 13,
     left: 250,
+  },
+  confirmButtonContainer:{
+    top: 30,
+    alignItems: 'center',
+  },
+  confirmButton:{
+    backgroundColor: '#2194FF',
+    width: 100,
+    height: 40,
   },
 });

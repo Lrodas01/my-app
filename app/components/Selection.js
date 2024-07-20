@@ -1,31 +1,28 @@
-import { Text, View, StyleSheet, Image } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native'
 import React from 'react'
 
 const Selection = ({ titleText, descriptionText, image }) => {
+
+const [variable, setVariable] = useState(false);
+  if (variable == true) {setVariable (false)} else {setVariable (true)}
   
     return (
-    <View style = {styles.container}>
-        <View style = {styles.box}>
-            <Text style = {styles.titleBox}>{titleText}</Text>
-            <Text style = {styles.descriptionBox}>
-              {descriptionText}
-            </Text>
-            <Image style = {styles.image} source={image} />
-            <View style = {styles.sphere} onpress></View>
-            
-        </View>
-    </View>
+      <Pressable style = {styles.box}>
+          <Text style = {styles.titleBox}>{titleText}</Text>
+          <Text style = {styles.descriptionBox}>
+            {descriptionText}
+          </Text>
+          <Image style = {styles.image} source={image} />
+          <View style = {styles.sphere} onpress></View>
+      </Pressable>
     )
   }
 
 
 const styles = StyleSheet.create ({
 
-  container: {
-    fontFamily: 'Nunito',
-  },
-
-  box: {    
+  box: {  
+    fontFamily: 'Nunito',  
     maxWidth: 343,
     height: 150,
     marginLeft: 25,

@@ -2,8 +2,9 @@ import { Unmatched } from 'expo-router';
 import Welcome from './Pages/welcome'
 import { View, Text, Image } from 'react-native'
 import React, { useEffect, useRef} from 'react'
-import Home from './Pages/login'
+// import Home from './Pages/login'
 import axios from 'axios';
+import Jobs from './components/jobs'
 
 export default function app() {
 
@@ -22,6 +23,6 @@ export default function app() {
   }, [])
 
   return (
-    <Welcome/>
+    <Jobs/>
   )
 }
