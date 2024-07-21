@@ -1,19 +1,31 @@
 import { Text, View, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import { Ionicons } from '@expo/vector-icons'
 
 const Selection = ({ titleText, descriptionText, image }) => {
 
-const [variable, setVariable] = useState(false);
-  if (variable == true) {setVariable (false)} else {setVariable (true)}
+const [selected, setSelected] = useState(false);
+  const onPressFunction = () => {
+    if (selected) {
+      setSelected (false);
+    } else {
+      setSelected(true);
+    }
+  };
   
     return (
-      <Pressable style = {styles.box}>
+      <Pressable style = {styles.box} onPress = {onPressFunction}>
           <Text style = {styles.titleBox}>{titleText}</Text>
           <Text style = {styles.descriptionBox}>
             {descriptionText}
           </Text>
           <Image style = {styles.image} source={image} />
-          <View style = {styles.sphere} onpress></View>
+          {!selected && (
+            <Ionicons style = {styles.sphere} name = "checkmark-circle-outline" size={35} color={'black'}/>
+          )}
+          {selected && (
+            <Ionicons style = {styles.sphere} name = 'checkmark-circle' size = {35} color={'black'}/>
+          )}
       </Pressable>
     )
   }
@@ -56,13 +68,8 @@ descriptionBox: {
   },
 
   sphere: {
-    marginLeft: 16,
-    marginRight: 292,
+    left: 10,
     bottom: 9,
-    backgroundColor: '#D9D9D9',
-    width: 35,
-    height: 35,
-    borderRadius: '100%',
   },
 
   image: {

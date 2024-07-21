@@ -23,6 +23,6 @@ export default function app() {
   }, [])
 
   return (
-    <Jobs/>
+    <Welcome/>
   )
 }
