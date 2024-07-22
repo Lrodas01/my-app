@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React from 'react'
 import {router} from 'expo-router'
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   return (
     <View style = {styles.container}>
         <View style = {styles.logoContainer}>
@@ -14,10 +14,10 @@ const Welcome = () => {
         <View style = {styles.descriptor}>
             <Text style = {styles.descriptorText}>Welcome! Lets get to know you</Text>
         </View>
-        <Pressable style = {styles.buttonContainer} onPress={() => router.replace('../Pages/login')}>
+        <Pressable style = {styles.buttonContainer} onPress={() => router.navigate('../Pages/login')}>
             <Text style = {styles.textButton}>Start finding your interest</Text>
         </Pressable>
-        <Pressable style = {styles.buttonContainer2} onPress={() => router.replace('../Pages/missing')}>
+        <Pressable style = {styles.buttonContainer2} onPress={() => router.navigate('../Pages/missing')}>
             <Text style = {styles.textButton2}>I already know what to do!</Text>
         </Pressable>
 
@@ -27,6 +27,7 @@ const Welcome = () => {
 
 const styles = StyleSheet.create ({
 container: {
+    backgroundColor: '#fff'
     },
 iconImage: {
     position: 'absolute',

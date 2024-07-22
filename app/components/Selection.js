@@ -1,34 +1,29 @@
-import { Text, View, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native'
-import React, { useState } from 'react'
-import { Ionicons } from '@expo/vector-icons'
+import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
-const Selection = ({ titleText, descriptionText, image }) => {
+const Selection = ({ titleText, descriptionText, image, onSelect }) => {
+  const [selected, setSelected] = useState(false);
 
-const [selected, setSelected] = useState(false);
   const onPressFunction = () => {
-    if (selected) {
-      setSelected (false);
-    } else {
-      setSelected(true);
-    }
+    const newSelected = !selected;
+    setSelected(newSelected);
+    onSelect(titleText, newSelected);
   };
-  
-    return (
-      <Pressable style = {styles.box} onPress = {onPressFunction}>
-          <Text style = {styles.titleBox}>{titleText}</Text>
-          <Text style = {styles.descriptionBox}>
-            {descriptionText}
-          </Text>
-          <Image style = {styles.image} source={image} />
-          {!selected && (
-            <Ionicons style = {styles.sphere} name = "checkmark-circle-outline" size={35} color={'black'}/>
-          )}
-          {selected && (
-            <Ionicons style = {styles.sphere} name = 'checkmark-circle' size = {35} color={'black'}/>
-          )}
-      </Pressable>
-    )
-  }
+
+  return (
+    <Pressable style={styles.box} onPress={onPressFunction}>
+      <Text style={styles.titleBox}>{titleText}</Text>
+      <Text style={styles.descriptionBox}>{descriptionText}</Text>
+      <Image style={styles.image} source={image} />
+      {selected ? (
+        <Ionicons style={styles.sphere} name="checkmark-circle" size={35} color="black" />
+      ) : (
+        <Ionicons style={styles.sphere} name="checkmark-circle-outline" size={35} color="black" />
+      )}
+    </Pressable>
+  );
+};
 
 
 const styles = StyleSheet.create ({

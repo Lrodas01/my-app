@@ -1,9 +1,20 @@
 import { View, Text, Image, StyleSheet, ScrollView, Pressable } from 'react-native';
-import { router } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
 import Selection from '../components/Selection';
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleSelect = (title, isSelected) => {
+    setSelectedOptions((prev) => {
+      if (isSelected) {
+        return [...prev, title];
+      } else {
+        return prev.filter((option) => option !== title);
+      }
+    });
+  };
+
   const cardsData = [
     { 
       titleText: "Computers",
@@ -30,7 +41,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomePage}>
-        <Pressable style={styles.buttonContainer} onPress={() => router.replace('../Pages/welcome')}>
+        <Pressable style={styles.buttonContainer} onPress={() => navigation.navigate('Welcome')}>
           <Text style={styles.textButton}>Start finding your interest</Text>
         </Pressable>
         <Image style={styles.imageContainer} source={require('../../assets/images/icon.png')} />
@@ -44,12 +55,13 @@ const Home = () => {
             titleText={card.titleText}
             descriptionText={card.descriptionText}
             image={card.imageURI}
+            onSelect={handleSelect}
           />
         ))}
       </ScrollView>
       <View style={styles.footer}>
         <View style={styles.confirmButtonContainer}>
-          <Pressable style={styles.confirmButton}>
+          <Pressable style={styles.confirmButton} onPress={() => navigation.navigate('Details', { selectedOptions })}>
             <Text>Confirm your choices?</Text>
           </Pressable>
         </View>
@@ -115,4 +127,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home; // Ensure export is correct
+export default Home;
