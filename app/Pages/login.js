@@ -17,66 +17,31 @@ const Home = ({ navigation }) => {
   };
 
   const cardsData = [
-    { 
+    {
       type: "Computers",
       titleText: "Computers",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
+      descriptionText: "This is a description for computers",
+      imageURI: require('../../assets/images/computer.png'),
     },
     {
       type: "Medical",
       titleText: "Medical",
-      descriptionText: "this is description for medical",
-      imageURI: require('../../assets/images/medical.webp')
+      descriptionText: "This is a description for medical",
+      imageURI: require('../../assets/images/medical.webp'),
     },
     {
       type: "Finance",
       titleText: "Finance",
-      descriptionText: "this is description for financing",
-      imageURI: require('../../assets/images/finance.jpg')
+      descriptionText: "This is a description for finance",
+      imageURI: require('../../assets/images/finance.jpg'),
     },
     {
       type: "Kinesiology",
       titleText: "Kinesiology",
-      descriptionText: "this is description for kinesiology",
-      imageURI: require('../../assets/images/physical.webp')
+      descriptionText: "This is a description for kinesiology",
+      imageURI: require('../../assets/images/physical.webp'),
     },
-    { 
-      type: "5",
-      titleText: "5",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
-    },
-    { 
-      type: "6",
-      titleText: "6",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
-    },
-    { 
-      type: "7",
-      titleText: "7",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
-    },
-    { 
-      type: "8",
-      titleText: "8",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
-    },
-    { 
-      type: "9",
-      titleText: "9",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
-    },
-    { 
-      type: "10",
-      titleText: "10",
-      descriptionText: "this is description for computers",
-      imageURI: require('../../assets/images/computer.png')
-    },
+    // Add more card data as needed
   ];
 
   return (
@@ -92,18 +57,28 @@ const Home = ({ navigation }) => {
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         {cardsData.map((card, index) => (
           <Selection
-            key={index}
+            key={index} // Using index as key, make sure titleText is unique for better key usage
             titleText={card.titleText}
             descriptionText={card.descriptionText}
             image={card.imageURI}
             onSelect={handleSelect}
+            selected={selectedOptions.includes(card.titleText)}
           />
         ))}
       </ScrollView>
       <View style={styles.footer}>
         <View style={styles.confirmButtonContainer}>
-          <Pressable style={styles.confirmButton} onPress={() => navigation.navigate('Details', { selectedOptions })}>
-            <Text>Confirm your choices?</Text>
+        <Pressable
+            style={[
+              styles.confirmButton,
+              selectedOptions.length === 0 && styles.disabledButton
+            ]}
+            onPress={() => navigation.navigate('Details', { selectedOptions })}
+            disabled={selectedOptions.length === 0}
+          >
+            <Text style={selectedOptions.length === 0 ? styles.disabledButtonText : styles.confirmButtonText}>
+              Confirm your choices?
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -165,6 +140,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#2194FF',
     width: 100,
     height: 40,
+  },
+  disabledButton: {
+    backgroundColor: '#cccccc',
+  },
+  disabledButtonText: {
+    color: '#666666',
   },
 });
 

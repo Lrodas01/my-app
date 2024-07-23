@@ -1,81 +1,62 @@
+import { View, StyleSheet, ScrollView } from 'react-native';
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
-import Filtered from '../components/filteredJobs';
+import FilteredJobs from '../components/filteredJobs';
 
-
-const DetailsScreen = ({ route, navigation }) => {
-  const { selectedOptions } = route.params;
-
-  const jobsData = [
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-  ]
+const DetailsScreen = ({ route }) => {
+    const { selectedOptions } = route.params;
   
-
-  return (
-    < >
-    <Pressable onPress={() => navigation.replace('Home')}>
-        <Text>Go back</Text>
-    </Pressable>
-    <Pressable style={styles.container} onPress={() => navigation.replace('Info')} >
-      <Text style={styles.title}>Selected Options:</Text>
-      {selectedOptions.map((option, index) => (
-        <Text key={index} style={styles.option}>{option}</Text>
-      ))}
-    </Pressable>
-    </>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  option: {
-    fontSize: 18,
-    marginBottom: 8,
-  },
-});
-
-export default DetailsScreen;
+    // Assuming you have a cardsData array in DetailsScreen as well to map the selected titles to detailed data
+    const cardsData = [
+      {
+        type: "Computers",
+        titleText: "Computers",
+        descriptionText: "This is a description for computers",
+        imageURI: require('../../assets/images/computer.png'),
+      },
+      {
+        type: "Medical",
+        titleText: "Medical",
+        descriptionText: "This is a description for medical",
+        imageURI: require('../../assets/images/medical.webp'),
+      },
+      {
+        type: "Finance",
+        titleText: "Finance",
+        descriptionText: "This is a description for finance",
+        imageURI: require('../../assets/images/finance.jpg'),
+      },
+      {
+        type: "Kinesiology",
+        titleText: "Kinesiology",
+        descriptionText: "This is a description for kinesiology",
+        imageURI: require('../../assets/images/physical.webp'),
+      },
+      // Add more card data as needed
+    ];
+  
+    const selectedData = selectedOptions.map(option => cardsData.find(card => card.titleText === option));
+  
+    return (
+      <ScrollView contentContainerStyle={styles.container}>
+        {selectedData.map((option, index) => (
+          <FilteredJobs
+            key={option.titleText}
+            jobName={option.titleText}
+            jobDescription={option.descriptionText}
+            image={option.imageURI}
+          />
+        ))}
+      </ScrollView>
+    );
+  };
+  const styles = StyleSheet.create({
+    container: {
+      flexGrow: 1,
+      backgroundColor: '#fff',
+    },
+    detailContainer: {
+      marginBottom: 20,
+    },
+  });
+  
+  export default DetailsScreen;

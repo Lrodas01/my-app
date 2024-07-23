@@ -2,21 +2,21 @@ import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
-const Selection = ({ titleText, descriptionText, image, onSelect }) => {
-  const [selected, setSelected] = useState(false);
+const Selection = ({ titleText, descriptionText, image, onSelect, selected }) => {
+  const [isSelected, setIsSelected] = useState(selected);
 
   const onPressFunction = () => {
-    const newSelected = !selected;
-    setSelected(newSelected);
+    const newSelected = !isSelected;
+    setIsSelected(newSelected);
     onSelect(titleText, newSelected);
   };
 
   return (
-    <Pressable style={styles.box} onPress={onPressFunction}>
+    <Pressable style={[styles.box, isSelected && styles.selectedBox]} onPress={onPressFunction}>
       <Text style={styles.titleBox}>{titleText}</Text>
       <Text style={styles.descriptionBox}>{descriptionText}</Text>
       <Image style={styles.image} source={image} />
-      {selected ? (
+      {isSelected ? (
         <Ionicons style={styles.sphere} name="checkmark-circle" size={35} color="black" />
       ) : (
         <Ionicons style={styles.sphere} name="checkmark-circle-outline" size={35} color="black" />

@@ -4,44 +4,7 @@ import Filtered from '../components/filteredJobs';
 
 const Info = () => {
 
-  const jobsData = [
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-    {
-        jobType: '',
-        jobName: '',
-        jobDescription: '',
-        jobImage: '',
-    },
-  ]
+
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
