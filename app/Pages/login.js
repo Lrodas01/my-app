@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomePage}>
-        <Pressable style={styles.buttonContainer} onPress={() => navigation.replace('Welcome')}>
+        <Pressable style={styles.buttonContainer} onPress={() => navigation.goBack('Welcome')}>
           <Text style={styles.textButton}>Start finding your interest</Text>
         </Pressable>
         <Image style={styles.imageContainer} source={require('../../assets/images/icon.png')} />

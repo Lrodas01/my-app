@@ -1,19 +1,25 @@
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
-const FilteredJobs = ({ jobName, jobDescription, image }) => {
+const FilteredJobs = ({ jobName, jobDescription, image, navigation, route, onPress }) => {
   return (
-    <Pressable style = {styles.container}>
-        <Text style = {styles.title}>{jobName}</Text>
+    <View style = {styles.superContainer}>
+    <Pressable style = {styles.container} onPress={onPress} >
+        <Text style = {styles.title}> {jobName} </Text>
         <Text style = {styles.description}> {jobDescription}</Text>
         <Image style = {styles.image} source={image} />
     </Pressable>
+    </View>
   )
 }
 
 export default FilteredJobs
 
 const styles = StyleSheet.create({
+
+superContainer:{ 
+    backgroundColor: '#D8DEE9'
+},
 
 container: {
     borderRadius: 7,
