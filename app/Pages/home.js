@@ -1,5 +1,6 @@
-import { View, Text, Image, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Pressable, StatusBar } from 'react-native';
 import React, { useState } from 'react';
+import { Screen } from 'react-native-screens';
 import Selection from '../components/Selection';
 
 
@@ -45,16 +46,17 @@ const Home = ({ navigation }) => {
   ];
 
   return (
+
     <View style={styles.container}>
-      <View style={styles.welcomePage}>
-        <Pressable style={styles.buttonContainer} onPress={() => navigation.goBack('Welcome')}>
+      <StatusBar translucent={true} backgroundColor="#005FEE" />
+      <View style={styles.welcomeHeader}>
+        {/* <Pressable style={styles.buttonContainer} onPress={() => navigation.goBack('Welcome')}>
           <Text style={styles.textButton}>Start finding your interest</Text>
-        </Pressable>
-        <Image style={styles.imageContainer} source={require('../../assets/images/icon.png')} />
-        <Text style={styles.welcomeText}>Welcome to Occupi</Text>
-        <Text style={styles.descriptionText}>Let's get started by choosing your interests!</Text>
+        </Pressable> */}
+        <Text style={styles.welcomeText}>Welcome! lets see what your interests are :)</Text>
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <View style = {{flexDirection: 'row',flexWrap: 'wrap'}}>
         {cardsData.map((card, index) => (
           <Selection
             key={index} // Using index as key, make sure titleText is unique for better key usage
@@ -65,8 +67,9 @@ const Home = ({ navigation }) => {
             selected={selectedOptions.includes(card.titleText)}
           />
         ))}
+      </View>
       </ScrollView>
-      <View style={styles.footer}>
+      <View style={[styles.footer, styles.shadowProp]}>
         <View style={styles.confirmButtonContainer}>
         <Pressable
             style={[
@@ -87,65 +90,114 @@ const Home = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+container: {
     flex: 1,
     fontFamily: 'Nunito',
     backgroundColor: '#fff',
   },
-  welcomePage: {
-    fontFamily: 'Nunito',
-    alignItems: 'center',
-    marginBottom: 20,
-    paddingVertical: 0,
+  screen: {
+    flex: 1,
+    backgroundColor: '#005FEE', // Set your desired background color here
   },
-  imageContainer: {
+  welcomeHeader: {
+    height: 100, 
+    paddingLeft: 24, 
+    paddingRight: 24, 
+    paddingTop: 16, 
+    paddingBottom: 16, 
+    backgroundColor: '#005FEE', 
+    borderBottomLeftRadius: 8, 
+    borderBottomRightRadius: 8, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    gap: 10, 
+    display: 'inline-flex'
+  },
+imageContainer: {
     width: 55,
     height: 55,
     marginTop: 0,
   },
-  welcomeText: {
-    fontSize: 40,
-    marginTop: 24,
-    fontWeight: '700',
-    textAlign: 'center',
+welcomeText: {
+    width: 345, 
+    color: 'white', 
+    fontSize: 25, 
+    fontFamily: 'Nunito', 
+    fontWeight: '700', 
+    wordWrap: 'break-word'
   },
-  descriptionText: {
+descriptionText: {
     fontSize: 19,
     marginTop: 24,
     lineHeight: 25.92,
     fontWeight: '700',
     textAlign: 'center',
   },
-  scrollViewContent: {
+scrollViewContent: {
+    top: 37,
     paddingHorizontal: 16,
     paddingBottom: 10,
     flexGrow: 1,
   },
-  footer: {
-    height: 70,
+footer: {
+  height: 118,
+  backgroundColor: 'white'
   },
-  buttonContainer: {},
-  button: {
-    backgroundColor: '#000',
-    width: 100,
-    height: 50,
-    top: 13,
-    left: 250,
-  },
-  confirmButtonContainer: {
+shadowProp:{
+  shadowColor: '#4D4D4D',
+  shadowOffset: { height: -12 },
+  shadowOpacity: 0.16,
+  shadowRadius: 3,
+},
+confirmButtonContainer: {
     top: 30,
     alignItems: 'center',
   },
-  confirmButton: {
-    backgroundColor: '#2194FF',
-    width: 100,
-    height: 40,
+confirmButton: {
+  backgroundColor: '#005FEE',
+  width: 346, 
+  height: 54, 
+  paddingLeft: 24, 
+  paddingRight: 24, 
+  paddingTop: 16, 
+  paddingBottom: 16, 
+  borderRadius: 8, 
+  justifyContent: 'center', 
+  alignItems: 'center', 
+  gap: 10, 
+  display: 'inline-flex',
   },
-  disabledButton: {
+confirmButtonText:{
+  width: 298, 
+  textAlign: 'center', 
+  color: 'white', 
+  fontSize: 16, 
+  fontFamily: 'Nunito', 
+  fontWeight: '900', 
+  wordWrap: 'break-word'
+  },
+disabledButton: {
     backgroundColor: '#cccccc',
+    width: 346, 
+    height: 54, 
+    paddingLeft: 24, 
+    paddingRight: 24, 
+    paddingTop: 16, 
+    paddingBottom: 16, 
+    borderRadius: 8, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    gap: 10, 
+    display: 'inline-flex',
   },
-  disabledButtonText: {
-    color: '#666666',
+disabledButtonText: {
+    width: 298, 
+    textAlign: 'center', 
+    color: 'white', 
+    fontSize: 16, 
+    fontFamily: 'Nunito', 
+    fontWeight: '900', 
+    wordWrap: 'break-word'
   },
 });
 

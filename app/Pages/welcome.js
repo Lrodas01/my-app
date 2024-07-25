@@ -1,93 +1,90 @@
-import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable, StatusBar, SafeAreaView } from 'react-native'
 import React from 'react'
-import {router} from 'expo-router'
 
-const Welcome = ( navigation ) => {
+
+const Welcome = ( {navigation} ) => {
   return (
+    <>
+
+
     <View style = {styles.container}>
+    <StatusBar style="light" translucent={false} backgroundColor="#005FEE" />
         <View style = {styles.logoContainer}>
-        <Image source={require('../../assets/images/icon.png')} style = {styles.iconImage}/>
-        <Text style = {styles.companyName}>
-            Occupi
-        </Text>
+            <Image source={require('../../assets/images/logo.png')} style = {styles.iconImage}/>
         </View>
-        <View style = {styles.descriptor}>
-            <Text style = {styles.descriptorText}>Welcome! Lets get to know you</Text>
+        <View>
+            <Text style = {styles.companyName}>Occupi</Text>
         </View>
-        <Pressable style = {styles.buttonContainer} onPress={() => navigation.navigate('../Pages/login')}>
+
+        <Pressable style = {styles.buttonContainer} onPress={() => navigation.navigate('Home')}>
             <Text style = {styles.textButton}>Start finding your interest</Text>
         </Pressable>
-        <Pressable style = {styles.buttonContainer2} onPress={() => navigation.navigate('../Pages/missing')}>
-            <Text style = {styles.textButton2}>I already know what to do!</Text>
+        <Pressable style = {styles.buttonContainer2} onPress={() => navigation.navigate('HomePage')}>
+            <Text style = {styles.textButton}>I already know what to do!</Text>
         </Pressable>
-
     </View>
+ 
+</>
   )
 }
 
 const styles = StyleSheet.create ({
-container: {
-    backgroundColor: '#fff'
-    },
-iconImage: {
-    position: 'absolute',
-    left: 71,
-    top: 226,
-    width: 250,
-    height: 200,
-    },
-logoContainer: {
+phoneBezel:{
     bottom: 30,
+    height: 100,
+    backgroundColor: 'red',
     },
-companyName: {
-    position: 'absolute',
-    fontFamily: 'Futura',
-    fontSize: 55,
-    left: 107,
-    top: 386,
-    },
-descriptor: {
-    position: 'absolute',
-    top: 482,
-    left: 54,
+container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
 },
-descriptorText:{
-    fontSize: 20,
+companyName:{
+    color: 'black', 
+    fontSize: 55, 
+    fontFamily: 'Futura', 
+    fontWeight: '500', 
+    wordWrap: 'break-word'
 },
 buttonContainer:{
-    position: 'absolute',
-    top: 550,
-    backgroundColor: '#16BF82',
-    width: 300,
-    height: 50,
-    margin: 50,
-    borderRadius: '100%',
+    top: 98,
+    width: 346, 
+    height: 54, 
+    paddingLeft: 24, 
+    paddingRight: 24, 
+    paddingTop: 16, 
+    paddingBottom: 16, 
+    borderRadius: 8, 
+    backgroundColor: '#005FEE',
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    gap: 10, 
+    display: 'inline-flex'
 },
 buttonContainer2:{
-    position: 'absolute',
-    top: 620,
-    backgroundColor: '#88CCF1',
-    width: 300,
-    height: 50,
-    margin: 50,
-    borderRadius: '100%',
+    width: 346, 
+    height: 54, 
+    top: 128,
+    paddingLeft: 24, 
+    paddingRight: 24, 
+    paddingTop: 16, 
+    paddingBottom: 16, 
+    backgroundColor: '#005FEE', 
+    borderRadius: 8, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    gap: 10, 
+    display: 'inline-flex'
 },
 textButton:{
-    top: 12,
-    textAlign: 'center',
-    color: '#FFF',
-    fontSize: 20,
-    fontFamily: 'Nunito',
-    textAlign: 'center',
-},
-textButton2:{
-    top: 12,
-    textAlign: 'center',
-    color: '#000',
-    fontSize: 20,
-    fontFamily: 'Nunito',
-    textAlign: 'center',
-
+    width: 298, 
+    textAlign: 'center', 
+    color: 'white', 
+    fontSize: 16, 
+    fontFamily: 'Nunito', 
+    fontWeight: '900', 
+    wordWrap: 'break-word'
 },
 });
 

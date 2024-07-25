@@ -12,8 +12,19 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+      },
+      "infoPlist": {
+        "UIViewControllerBasedStatusBarAppearance": false
+      }
     },
     "android": {
       "adaptiveIcon": {

@@ -4,8 +4,8 @@ import React from 'react'
 const FilteredJobs = ({ jobName, jobDescription, image, navigation, route, onPress }) => {
   return (
     <View style = {styles.superContainer}>
-    <Pressable style = {styles.container} onPress={onPress} >
-        <Text style = {styles.title}> {jobName} </Text>
+    <Pressable style = {[styles.container, styles.shadowProp]} onPress={onPress} >
+        <Text style = {[styles.title, {textAlign: 'center', width: 275, left: 50,}]}> {jobName} </Text>
         <Text style = {styles.description}> {jobDescription}</Text>
         <Image style = {styles.image} source={image} />
     </Pressable>
@@ -18,28 +18,44 @@ export default FilteredJobs
 const styles = StyleSheet.create({
 
 superContainer:{ 
-    backgroundColor: '#D8DEE9'
+
 },
 
 container: {
-    borderRadius: 7,
-    borderWidth: 1,
-    borderColor: '#000',
-    margin: 8,
+    width: 376, 
     height: 164,
-    width: 376,
-    backgroundColor: '#88CCF1',
+    backgroundColor: 'white', 
+    borderRadius: 7,
+    marginVertical: 19,
+},
+shadowProp:{
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
 },
 title: {
+    width: 275, 
+    height: 34, 
     top: 4,
-    fontSize: 25,
-    textAlign: 'center',
+    color: 'black', 
+    fontSize: 25, 
+    fontFamily: 'Nunito', 
+    fontWeight: '600', 
+    wordWrap: 'break-word'
 },
 description: {
-    width: 200,
-    fontSize: 10,
+    width: 244, 
+    height: 60, 
+    top: 29,
+    left: 14,
     textAlign: 'center',
-    top: 25,
+    color: '#808080', 
+    fontSize: 10, 
+    fontFamily: 'Nunito', 
+    fontWeight: '500', 
+    lineHeight: 20, 
+    wordWrap: 'break-word'
 },
 image: {
     position: 'absolute',

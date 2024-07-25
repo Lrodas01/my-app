@@ -12,69 +12,83 @@ const Selection = ({ titleText, descriptionText, image, onSelect, selected }) =>
   };
 
   return (
-    <Pressable style={[styles.box, isSelected && styles.selectedBox]} onPress={onPressFunction}>
-      <Text style={styles.titleBox}>{titleText}</Text>
-      <Text style={styles.descriptionBox}>{descriptionText}</Text>
+    <Pressable style={[styles.box, isSelected && styles.selectedBox, styles.shadowProp, styles.boxContainer]} onPress={onPressFunction}>
+        <View>
+          <Text style={[styles.titleBox, isSelected && styles.selectedBox]}>{titleText}</Text>
+        </View>
+        <View>
+          <Text style={[styles.descriptionBox, isSelected && styles.selectedBox]}>{descriptionText}</Text>
+        </View>
       <Image style={styles.image} source={image} />
-      {isSelected ? (
-        <Ionicons style={styles.sphere} name="checkmark-circle" size={35} color="black" />
+      {/* {isSelected ? (
+        <Ionicons style={styles.sphere} name="checkmark-circle" size={0} color="black" />
       ) : (
-        <Ionicons style={styles.sphere} name="checkmark-circle-outline" size={35} color="black" />
-      )}
+        <Ionicons style={styles.sphere} name="checkmark-circle-outline" size={0} color="black" />
+      )} */}
     </Pressable>
   );
 };
 
 
 const styles = StyleSheet.create ({
-
-  box: {  
-    fontFamily: 'Nunito',  
-    maxWidth: 343,
-    height: 150,
-    marginLeft: 25,
-    marginRight: 25,
-    marginBottom: 40,
-    padding: 1,
-    top: 0,
-    borderColor: '#000',
+  boxContainer:{
     borderWidth: 1,
-    borderRadius: 7,
-
+    borderColor: 'white',
   },
-
+  box: {  
+    marginHorizontal: 14,
+    width: 170, 
+    height: 112, 
+    padding: 8, 
+    backgroundColor: 'white', 
+    borderRadius: 8, 
+    border: '1px solid', 
+    flexDirection: 'column', 
+    justifyContent: 'flex-start', 
+    alignItems: 'flex-start', 
+    gap: 24, 
+    display: 'inline-flex',
+    marginBottom: 19,
+    
+  },
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: { height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3,
+  },
+  selectedBox: {
+    backgroundColor: '#005FEE',
+    color: 'white',
+  },
 titleBox: {
-  width: 150,
-  height: 41,
-  fontSize: 30,
-  fontWeight: 600,
-  left: 13,
+  paddingTop: 26,
+  width: 154, 
+  color: 'black', 
+  fontSize: 15, 
+  fontFamily: 'Nunito', 
+  fontWeight: '700', 
+  wordWrap: 'break-word'
 },
 
 descriptionBox: {
-    width: 128,
-    height: 41,
-    fontSize: 14,
-    fontWeight: 400,
-    left: 13,
-    marginBottom: 20,
-    marginTop: 13,
-    marginLeft: 38,
-  },
-
-  sphere: {
-    left: 10,
-    bottom: 9,
+  width: 154, 
+  height: 32, 
+  color: 'black', 
+  fontSize: 12, 
+  fontFamily: 'Nunito', 
+  fontWeight: '400', 
+  wordWrap: 'break-word'
   },
 
   image: {
-    // left: 200,
-    // bottom: 100,
-    position: 'absolute',
-    top: 14,
-    right: 10,
-    width: 100,
-    height: 120,
+  width: 16, 
+  height: 16, 
+  left: 4, 
+  top: 6, 
+  position: 'absolute', 
+  borderRadius: 3, 
+  border: '1.50px white solid'
   },
 });
 
