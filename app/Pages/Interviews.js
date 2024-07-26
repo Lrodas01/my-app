@@ -6,7 +6,7 @@ import Schedule from '../components/schedule'
 const Interviews = ({navigation}) => {
   return (
 
-<ScrollView styles={[styles.container, {backgroundColor: 'white',}]}>
+<ScrollView style={[styles.container]}>
     <View style = {styles.header}>
       <Text style = {styles.headerText}>Mock Interview</Text>
       <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>

@@ -10,6 +10,8 @@ import SpecificJobs from './Pages/SpecificJobs';
 import Interviews from './Pages/Interviews';
 
 import Schedule from './components/schedule'
+import Colleges from './components/colleges';
+import ActualHome from './Pages/HomePage';
 
 const Stack = createStackNavigator();
 
@@ -24,9 +26,11 @@ const App = () => {
         <Stack.Screen name="Details" component={DetailsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SpecificJobs" component={SpecificJobs} options={{ headerShown: false }} />
         <Stack.Screen name="Interviews" component={Interviews} options={{ headerShown: false }} />
+        <Stack.Screen name="ActualHome" component={ActualHome} options={{ headerShown: false }} />
 
       </Stack.Navigator>
     </NavigationContainer>
+    // <Colleges/>
     // <Schedule/>
   );
 };

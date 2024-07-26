@@ -42,7 +42,6 @@ const Home = ({ navigation }) => {
       descriptionText: "This is a description for kinesiology",
       imageURI: require('../../assets/images/physical.webp'),
     },
-    // Add more card data as needed
   ];
 
   return (

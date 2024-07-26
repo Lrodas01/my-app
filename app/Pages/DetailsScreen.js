@@ -9,6 +9,7 @@ const DetailsScreen = ({ route, navigation, onPress }) => {
     const cardsData = [
         {
             category: "Computers",
+
             jobs: [
                 {
                     titleJob: "Computer Programming",
@@ -16,7 +17,8 @@ const DetailsScreen = ({ route, navigation, onPress }) => {
                     imageURIJob: require('../../assets/images/icon.png'),
                     imageURIcard: require("../../assets/images/temporary2.png"),
                     description: "Computer programming is the process of designing and writing instructions for computers to perform specific tasks or solve problems.",
-                    salaryRange: "79K - $140K"
+                    salaryRange: "79K - $140K",
+                    colleges: ["Colleges A", "Colleges B ", "Colleges C"],
                 },
                 {
                     titleJob: "Another job",
@@ -108,7 +110,7 @@ const DetailsScreen = ({ route, navigation, onPress }) => {
                 </Pressable>
                 {(selectedData.flatMap(option => option.jobs)).map((job, index) => (
                     <FilteredJobs
-                        onPress = {() => navigation.navigate('SpecificJobs', { job })}
+                        onPress = {() => navigation.navigate('SpecificJobs', { job, colleges: job.colleges })}
                         key={index}
                         jobName={job.titleJob}
                         jobDescription={job.descriptionJob}
