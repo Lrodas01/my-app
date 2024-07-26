@@ -1,200 +1,220 @@
-import { Pressable, StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { Pressable, StyleSheet, Text, View, ScrollView } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import Interests from '../components/Home Page Components/interests'
-import Interships from '../components/Home Page Components/interships'
+import Internships from '../components/Home Page Components/internships'
 import Recent from '../components/Home Page Components/recent'
+import Footer from '../components/Home Page Components/footer'
 
-const ActualHome = ({navigation, route }) => {
-
-
-
+const ActualHome = ({ navigation, route }) => {
   return (
-<>
-    <View style = {styles.header}>
-      <Text style = {styles.headerText}>Home</Text>
-      <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>
-    </View>
-      <Pressable style = {{position: 'absolute'}} onPress = {()=> {navigation.goBack('Welcome')}}>
-        <Text>Go back, this page is not done</Text>
-      </Pressable>
-    <View>
-      <Text style = {styles.exploreText}>Explore</Text>
-    </View>
-    <View style = {[styles.searchBar, styles.searchBarOutline]}>
-      <Text style = {[styles.searchBarText]}>
-        Search...
-      </Text>
-      <View style = {styles.ionoconsContainer}>
-        <Ionicons style = {styles.ionocon} name = 'close-outline' size = {16}></Ionicons>
-      </View>
-    </View>
-    <View style = {styles.recentContainer}>
-      <Text style = {styles.recentText}>Recent</Text>
-    </View>
-    <ScrollView horizontal contentContainerStyle = {styles.scrollContent}>
-      <Recent/>
-      <Recent/>
-      <Recent/>
-      <Recent/>
-    </ScrollView>
-      <View>
-        <Text style = {styles.intershipText}>Interships for you</Text>
-      </View>
-    <ScrollView>
-
-    </ScrollView>
-    <View style={styles.footer}>
-        <Pressable style={styles.homeButton} onPress={() => navigation.navigate('ActualHome')}>
-          <Ionicons name='home-outline' size={25} color='white'></Ionicons>
+    <View style={styles.container}>
+      <View contentContainerStyle={styles.scrollViewContent}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Home</Text>
+          <Ionicons style={styles.funnel} name='funnel-outline' size={36} color={'white'} />
+        </View>
+        <Pressable onPress={() => { navigation.goBack('Welcome') }}>
+          <Text>Go back, this page is not done</Text>
         </Pressable>
-        <Pressable style={styles.searchButton}>
-          <Image style={styles.searchImageButton} source={require('../../assets/images/searchButton.png')} />
-        </Pressable>
-        <Pressable style={styles.mockInterviewButton} onPress={() => navigation.navigate('Interviews')}>
-          <Ionicons name='chatbox-ellipses-outline' size={25} color='white'></Ionicons>
-        </Pressable>
+        <View>
+          <Text style={styles.exploreText}>Explore</Text>
+        </View>
+        <View style={[styles.searchBar, styles.searchBarOutline]}>
+          <Text style={[styles.searchBarText]}>
+            Search...
+          </Text>
+          <View style={styles.ionoconsContainer}>
+            <Ionicons style={styles.ionocon} name='close-outline' size={16} />
+          </View>
+        </View>
+        <View style={styles.recentContainer}>
+          <Text style={styles.recentText}>Recent</Text>
+<ScrollView 
+  showsHorizontalScrollIndicator = {false}
+  horizontal
+  contentContainerStyle={[styles.scrollContent, styles.recentContent]}>
+  <View style={styles.scrollableItem}>
+    <Recent />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Recent />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Recent />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Recent />
+  </View>
+</ScrollView>
+        </View>
+        <View style={styles.intershipContainer}>
+          <Text style={styles.intershipText}>Interships for you</Text>
+<ScrollView 
+  showsHorizontalScrollIndicator = {false}
+  horizontal 
+  contentContainerStyle={[styles.scrollContent]}>
+  <View style={styles.scrollableItem}>
+    <Internships />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Internships />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Internships />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Internships />
+  </View>
+</ScrollView>
+        </View>
+        <View style={styles.careerContainer}>
+          <Text style={styles.careerText}>Popular Career Interests</Text>
+<ScrollView
+  showsHorizontalScrollIndicator = {false}
+  horizontal
+  contentContainerStyle={[styles.scrollContent]}>
+  <View style={styles.scrollableItem}>
+    <Interests />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Interests />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Interests />
+  </View>
+  <View style={styles.scrollableItem}>
+    <Interests />
+  </View>
+</ScrollView>
+        </View>
       </View>
-</>
+      <Footer navigation={navigation}/>
+    </View>
   )
 }
 
 export default ActualHome
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor: 'white'
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
   },
-  funnel:{
+  scrollViewContent: {
+    flexGrow: 1,
+    paddingBottom: 80, // To make space for the footer
+  },
+  funnel: {
     position: 'absolute',
-    left: 374.5,
+    right: 24,
   },
-  scrollContent:{
+  scrollContent: {
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
     paddingRight: 48,
+    height: 'auto',
   },
-  header:{
-      width: 430, 
-      height: 68, 
-      paddingLeft: 24, 
-      paddingRight: 24, 
-      paddingTop: 16, 
-      paddingBottom: 16, 
-      backgroundColor: '#005FEE',
-      borderBottomLeftRadius: 8, 
-      borderBottomRightRadius: 8,
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      gap: 10, 
-      display: 'inline-flex',
-      position: "absolute",
+  header: {
+    width: '100%',
+    height: 68,
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingTop: 16,
+    paddingBottom: 16,
+    backgroundColor: '#005FEE',
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  headerText:{
-      width: 345, 
-      textAlign: 'center', 
-      color: 'white', 
-      fontSize: 25, 
-      fontFamily: 'Nunito', 
-      fontWeight: '700', 
-      wordWrap: 'break-word',
-      position: 'absolute',
+  headerText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 25,
+    fontFamily: 'Nunito',
+    fontWeight: '700',
   },
-  exploreText:{
-    top: 68,
-    left: 29,
-    color: 'black', 
-    fontSize: 25, 
-    fontFamily: 'Nunito', 
-    fontWeight: '700', 
-    wordWrap: 'break-word'
+  exploreText: {
+    marginLeft: 29,
+    color: 'black',
+    fontSize: 25,
+    fontFamily: 'Nunito',
+    fontWeight: '700',
   },
-  searchBar:{
-    position: 'absolute',
-    top: 125,
-    left: 24,
-    width: 387, 
-    height: 40, 
-    paddingLeft: 16, 
-    paddingRight: 16, 
-    paddingTop: 12, 
-    paddingBottom: 12, 
-    backgroundColor: 'white', 
-    borderRadius: '100%', 
-    overflow: 'hidden', 
-    justifyContent: 'flex-start', 
-    alignItems: 'center', 
-    gap: 8, 
-    display: 'inline-flex'
+  searchBar: {
+    marginTop: 13,
+    marginHorizontal: 24,
+    height: 40,
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    overflow: 'hidden',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
-  searchBarOutline:{
+  searchBarOutline: {
     borderWidth: 1,
     borderColor: '#D9D9D9',
   },
-  searchBarText:{
-    width: 331, 
-    color: '#1E1E1E', 
-    fontSize: 16, 
-    fontFamily: 'Inter', 
-    fontWeight: '400', 
-    lineHeight: 16, 
-    wordWrap: 'break-word'
-  },
-  ionoconsContainer:{
-    left: 350,
-    top: 10,
-    width: 16, 
-    height: 16, 
-    position: 'absolute' 
-  },
-  recentText:{
-    color: 'black', 
-    fontSize: 25, 
-    fontFamily: 'Nunito', 
-    fontWeight: '700', 
-    wordWrap: 'break-word'
-  },
-  recentContainer:{
-    position: 'absolute',
-    top: 188,
-    left: 31,
-  },
-  intershipText:{
-    position: 'absolute',
-    bottom: 50,
-    left: 29,
-    color: 'black', 
-    fontSize: 25, 
-    fontFamily: 'Nunito', 
-    fontWeight: '700', 
-    wordWrap: 'break-word'
-  },
-
-  homeButton: {
+  searchBarText: {
     flex: 1,
+    color: '#1E1E1E',
+    fontSize: 16,
+    fontFamily: 'Inter',
+    fontWeight: '400',
+  },
+  ionoconsContainer: {
+    width: 16,
+    height: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  searchButton: {
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center',
+  recentText: {
+    
+    color: 'black',
+    fontSize: 25,
+    fontFamily: 'Nunito',
+    fontWeight: '700',
   },
-  searchImageButton: {
-    width: 20,
-    height: 20,
+  recentContainer: {
+    
+    marginTop: 33,
+    marginLeft: 31,
+    marginRight: 31, // Add margin right
   },
-  mockInterviewButton: {
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center',
+  recentContent: {
+    marginTop: 18,
+    paddingRight: 48,
+    height: 'auto',
   },
-  footer: {
-    position: 'absolute',
-    top: 770,
-    width: '100%',
-    height: 74,
-    flexDirection: 'row', 
-    backgroundColor: '#005FEE',
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+  intershipContainer: {
+    marginTop: 20,
+    marginLeft: 29,
+    marginRight: 29, // Add margin right
   },
+  intershipText: {
+    color: 'black',
+    fontSize: 25,
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+  },
+  careerContainer: {
+    marginTop: 20,
+    marginLeft: 31,
+    marginRight: 31, // Add margin right
+    marginBottom: 20, // Add margin bottom to create space between career section and footer
+  },
+  careerText: {
+    color: 'black',
+    fontSize: 25,
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+  },
+  // Apply shadow styles to the scrollable items
+  scrollableItem: {
+
+  },
+  
 })

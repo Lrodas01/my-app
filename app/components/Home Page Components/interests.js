@@ -3,7 +3,7 @@ import React from 'react'
 
 const Interests = () => {
   return (
-    <View>
+    <View style = {[styles.container, styles.shadowProp]}>
       <Text>interests</Text>
     </View>
   )
@@ -11,4 +11,21 @@ const Interests = () => {
 
 export default Interests
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        marginLeft: 18,
+        top: 0,
+        left: 28,
+        width: 130, 
+        height: 125, 
+        backgroundColor: 'white', 
+        borderRadius: 7
+    },
+    shadowProp:{
+        shadowColor: '#171717',
+        shadowOffset: { height: 4 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3,
+    },
+
+})

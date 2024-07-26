@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Interships = () => {
+const Internships = () => {
   return (
     <View style = {[styles.container, styles.shadowProp]}>
       <Text>interships</Text>
@@ -9,12 +9,12 @@ const Interships = () => {
   )
 }
 
-export default Interships
+export default Internships
 
 const styles = StyleSheet.create({
-    container:{
-        marginHorizontal: 18,
-        top: 210,
+        container:{
+        marginLeft: 18,
+        top: 0,
         left: 28,
         width: 130, 
         height: 125, 

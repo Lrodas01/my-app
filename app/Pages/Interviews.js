@@ -1,30 +1,33 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import React, { useContext } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import Schedule from '../components/schedule'
+import Footer from '../components/Home Page Components/footer'
+import { AppContext, AppProvider } from '../AppContext'
 
-const Interviews = ({navigation}) => {
+
+const Interviews = ({navigation, route}) => {
+  const { cardsData } = useContext(AppContext);
+
   return (
-
-<ScrollView style={[styles.container]}>
-    <View style = {styles.header}>
-      <Text style = {styles.headerText}>Mock Interview</Text>
-      <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>
-    </View>
-      <Pressable onPress={() => navigation.goBack('SpecificJobs')}>
-        <Text>
-            WASSUUPPPPP!!!! Press to go back
-        </Text>
-      </Pressable>
+<>
+<View style={[styles.container]}>
+   
+<ScrollView contentContainerStyle = {{paddingBottom: 200,}}>
     <Pressable style = {styles.startButton}>
       <Text style= {styles.textButton}>Start</Text>
     </Pressable>
-    <Schedule/>
-    <Schedule/>
-    <Schedule/>
-    <Schedule/>
-</ScrollView>
-
+    {cardsData.map((schedule, index) => (
+        <Schedule key = {index} name = {schedule.name} time = {schedule.time}/>
+    ))}
+  </ScrollView>
+   <View style = {styles.header}>
+      <Text style = {styles.headerText}>Mock Interview</Text>
+      <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>
+    </View>
+</View>
+<Footer navigation={navigation}/>
+</>
   )
 }
 
@@ -86,5 +89,34 @@ textButton:{
   wordWrap: 'break-word'
 },
 scheduleContainer:{
-}
+},
+homeButton: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+searchButton: {
+  flex: 1, 
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+searchImageButton: {
+  width: 20,
+  height: 20,
+},
+mockInterviewButton: {
+  flex: 1, 
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+footer: {
+  position: 'absolute',
+  bottom: 0,
+  width: '100%',
+  height: 74,
+  flexDirection: 'row', 
+  backgroundColor: '#005FEE',
+  borderTopLeftRadius: 8,
+  borderTopRightRadius: 8,
+},
 })

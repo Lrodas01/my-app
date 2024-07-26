@@ -87,6 +87,10 @@ const DetailsScreen = ({ route, navigation, onPress }) => {
             descriptionText: "This is a description for kinesiology",
             imageURI: require('../../assets/images/physical.webp'),
         },
+        { name: 'Liam Mitchel', time: '9:00AM' },
+        { name: 'Emma Johnson', time: '10:00AM' },
+        { name: 'Oliver Smith', time: '11:00AM' },
+        { name: 'Ava Brown', time: '12:00PM' },
         
     ];
 

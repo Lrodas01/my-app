@@ -14,7 +14,7 @@ export default Recent
 const styles = StyleSheet.create({
     container:{
         marginLeft: 18,
-        top: 210,
+        top: 0,
         left: 28,
         width: 130, 
         height: 125, 

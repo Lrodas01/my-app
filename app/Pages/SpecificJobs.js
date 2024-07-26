@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   scrollContent: {
-    paddingBottom: 70, // Adjust padding to change footer?
+    paddingBottom: 0, // Adjust padding to change footer?
   },
   jobTextTitle: {
     height: 34,
@@ -307,4 +307,34 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
   },
+   homeButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchButton: {
+    flex: 1, 
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchImageButton: {
+    width: 20,
+    height: 20,
+  },
+  mockInterviewButton: {
+    flex: 1, 
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 74,
+    flexDirection: 'row', 
+    backgroundColor: '#005FEE',
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+
 });
