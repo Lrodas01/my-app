@@ -2,15 +2,18 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 
-const Schedule = ({name, time}) => {
+const Schedule = ({name, time, career, profile}) => {
   return (
-<View style = {styles.suoerContainer}>
+<View style = {styles.superContainer}>
     <View style = {[styles.container, styles.shadowProp]}>
       <View>
         <Text style = {styles.nameContainer}>{name}</Text>
       </View>
+      <View>
+        <Text style = {styles.careerContainer}>{career}</Text>
+      </View>
       <Image style = {styles.calender} source = {require('../../assets/images/calender.png')}/>
-      <Ionicons style = {styles.profile} name = 'person-outline' size = {20}></Ionicons>
+      <Image style = {styles.profile} source={profile}/>
       <View>
         <Text style = {styles.timeContainer}>
             {time}
@@ -44,31 +47,45 @@ shadowProp:{
     shadowRadius: 3,
 },
 nameContainer:{ 
-    top: 15,
-    left: 46,
-    width: 217, 
-    height: 21, 
+    width: 43, 
+    textAlign: 'center', 
     color: 'black', 
-    fontSize: 13, 
+    fontSize: 10, 
+    fontFamily: 'Nunito', 
+    fontWeight: '400', 
+    lineHeight: 10, 
+    wordWrap: 'break-word',
+    top: 62,
+    left: 10,
+},
+timeContainer:{
+    textAlign: 'center', 
+    color: 'black', 
+    fontSize: 20, 
     fontFamily: 'Nunito', 
     fontWeight: '400', 
     lineHeight: 22, 
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
+    bottom: 40,
 },
-timeContainer:{
-    position: 'absolute',
-    top: 25,
-    left: 136,
-    textAlign: 'center', 
-    color: 'black', fontSize: 20, fontFamily: 'Nunito', fontWeight: '400', lineHeight: 22, wordWrap: 'break-word'
+careerContainer:{
+  fontSize: 20,
+  fontFamily: 'Nunito',
+  fontWeight: '400',
+  left: 61,
+  height: 22,
+  width: 199,
+  lineHeight: 22,
 },
 calender:{ 
     position: 'absolute',
     left: 263,
 },
 profile:{
-    position: 'absolute',
-    top: 28,
-    left: 13.1
+    bottom: 34,
+    left: 8,
+    width: 50,
+    height: 50,
+    borderRadius: '100%'
 },
 })

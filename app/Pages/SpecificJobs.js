@@ -6,12 +6,15 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colleges from "../components/colleges";
+import { AppContext } from "../AppContext";
 
 const SpecificJobs = ({ route, navigation }) => {
+  const { cardsData } = useContext(AppContext)
   const { job, colleges } = route.params;
+  
 
   return (
     <View style={styles.container}>
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   scrollContent: {
-    paddingBottom: 0, // Adjust padding to change footer?
+    paddingBottom: 80, // Adjust padding to change footer?
   },
   jobTextTitle: {
     height: 34,

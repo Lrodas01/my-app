@@ -1,12 +1,20 @@
 import { Pressable, StyleSheet, Text, View, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import Interests from '../components/Home Page Components/interests'
 import Internships from '../components/Home Page Components/internships'
 import Recent from '../components/Home Page Components/recent'
 import Footer from '../components/Home Page Components/footer'
+import { AppContext } from '../AppContext'
 
 const ActualHome = ({ navigation, route }) => {
+
+  const {cardsData, recentJobs, addRecentJob} = useContext(AppContext)
+  const handleSelectInterest = (job) => {
+    addRecentJob(job);
+    navigation.navigate('SpecificJobs', { job, colleges: job.colleges });
+};
+
   return (
     <View style={styles.container}>
       <View contentContainerStyle={styles.scrollViewContent}>
@@ -30,23 +38,24 @@ const ActualHome = ({ navigation, route }) => {
         </View>
         <View style={styles.recentContainer}>
           <Text style={styles.recentText}>Recent</Text>
-<ScrollView 
-  showsHorizontalScrollIndicator = {false}
-  horizontal
-  contentContainerStyle={[styles.scrollContent, styles.recentContent]}>
-  <View style={styles.scrollableItem}>
-    <Recent />
-  </View>
-  <View style={styles.scrollableItem}>
-    <Recent />
-  </View>
-  <View style={styles.scrollableItem}>
-    <Recent />
-  </View>
-  <View style={styles.scrollableItem}>
-    <Recent />
-  </View>
-</ScrollView>
+ <ScrollView 
+    showsHorizontalScrollIndicator={false}
+    horizontal
+    contentContainerStyle={[styles.scrollContent, styles.recentContent]}
+  >
+    {recentJobs.length === 0 ? (
+      <View style={styles.scrollableItem}>
+        <Text>Nothing to see here</Text>
+      </View>
+    ) : (
+      recentJobs.map((job, index) => (
+        <Recent 
+        key={index} 
+        job={job} 
+        onPress = {() => handleSelectInterest(job)}/>
+      ))
+    )}
+  </ScrollView>
         </View>
         <View style={styles.intershipContainer}>
           <Text style={styles.intershipText}>Interships for you</Text>
@@ -74,17 +83,15 @@ const ActualHome = ({ navigation, route }) => {
   showsHorizontalScrollIndicator = {false}
   horizontal
   contentContainerStyle={[styles.scrollContent]}>
-  <View style={styles.scrollableItem}>
-    <Interests />
-  </View>
-  <View style={styles.scrollableItem}>
-    <Interests />
-  </View>
-  <View style={styles.scrollableItem}>
-    <Interests />
-  </View>
-  <View style={styles.scrollableItem}>
-    <Interests />
+  <View style={[styles.scrollableItem, {flexDirection: 'row'}]}>
+  {(cardsData.flatMap(option => option.jobs)).map((job, index) => (
+      <Interests
+          onPress = {() => navigation.navigate('SpecificJobs', { job, colleges: job.colleges })}
+          key={index}
+          jobName={job.titleJob}
+          image={job.imageURIJob}
+      />
+  ))}
   </View>
 </ScrollView>
         </View>

@@ -1,7 +1,8 @@
 import { View, Text, Image, StyleSheet, ScrollView, Pressable, StatusBar } from 'react-native';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Screen } from 'react-native-screens';
 import Selection from '../components/Selection';
+import { AppContext } from '../AppContext';
 
 
 const Home = ({ navigation }) => {
@@ -17,32 +18,7 @@ const Home = ({ navigation }) => {
     });
   };
 
-  const cardsData = [
-    {
-      type: "Computers",
-      titleText: "Computers",
-      descriptionText: "This is a description for computers",
-      imageURI: require('../../assets/images/computer.png'),
-    },
-    {
-      type: "Medical",
-      titleText: "Medical",
-      descriptionText: "This is a description for medical",
-      imageURI: require('../../assets/images/medical.webp'),
-    },
-    {
-      type: "Finance",
-      titleText: "Finance",
-      descriptionText: "This is a description for finance",
-      imageURI: require('../../assets/images/finance.jpg'),
-    },
-    {
-      type: "Kinesiology",
-      titleText: "Kinesiology",
-      descriptionText: "This is a description for kinesiology",
-      imageURI: require('../../assets/images/physical.webp'),
-    },
-  ];
+  const { cardsData } = useContext(AppContext);
 
   return (
 
@@ -55,13 +31,14 @@ const Home = ({ navigation }) => {
         <Text style={styles.welcomeText}>Welcome! lets see what your interests are :)</Text>
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          <View style = {{flexDirection: 'row',flexWrap: 'wrap'}}>
+          <View style = {{flexDirection: 'row',flexWrap: 'wrap', paddingBottom: 20,}}>
         {cardsData.map((card, index) => (
           <Selection
-            key={index} // Using index as key, make sure titleText is unique for better key usage
+            key={index}
             titleText={card.titleText}
             descriptionText={card.descriptionText}
             image={card.imageURI}
+            selectedImage={card.selectedImageURI}
             onSelect={handleSelect}
             selected={selectedOptions.includes(card.titleText)}
           />

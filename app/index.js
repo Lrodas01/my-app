@@ -21,8 +21,8 @@ const App = () => {
   return (
 
 <AppProvider>
-      <StatusBar style="light" translucent={false} backgroundColor="#005FEE" />
-      <Stack.Navigator initialRouteName="Welcome">
+      <StatusBar translucent={true} backgroundColor="#005FEE" />
+      <Stack.Navigator initialRouteName="Welcome" >
         <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Details" component={DetailsScreen} options={{ headerShown: false }} />

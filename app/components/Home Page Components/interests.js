@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
+import React, { useContext } from 'react'
+import { AppContext } from '../../AppContext'
 
-const Interests = () => {
+const Interests = ({jobName, onPress}) => {
+
   return (
-    <View style = {[styles.container, styles.shadowProp]}>
-      <Text>interests</Text>
-    </View>
+    <Pressable onPress = {onPress} style = {[styles.container, styles.shadowProp]}>
+      <Text style = {styles.name}>{jobName}</Text>
+      <Image style = {styles.image} source = {require('../../../assets/images/icon.png')}></Image>
+    </Pressable>
   )
 }
 
@@ -27,5 +30,22 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3,
     },
+    name:{
+      right: 4,
+      width: 140, 
+      textAlign: 'center', 
+      color: 'black', 
+      fontSize: 14, 
+      fontFamily: 'Nunito', 
+      fontWeight: '400', 
+      wordWrap: 'break-word'
+    },
+    image:{
+      position: 'absolute',
+      width:  50,
+      height: 50,
+      top: 42,
+      left: 41,
+    }
 
 })

@@ -7,26 +7,32 @@ import { AppContext, AppProvider } from '../AppContext'
 
 
 const Interviews = ({navigation, route}) => {
-  const { cardsData } = useContext(AppContext);
+  const { scheduleData } = useContext(AppContext);
 
   return (
 <>
 <View style={[styles.container]}>
    
-<ScrollView contentContainerStyle = {{paddingBottom: 200,}}>
-    <Pressable style = {styles.startButton}>
-      <Text style= {styles.textButton}>Start</Text>
-    </Pressable>
-    {cardsData.map((schedule, index) => (
-        <Schedule key = {index} name = {schedule.name} time = {schedule.time}/>
+<ScrollView contentContainerStyle = {{paddingBottom: 375, bottom: 20,}}>
+    {scheduleData.map((schedule, index) => (
+        <Schedule key = {index} name = {schedule.name} time = {schedule.time} career = {schedule.career} profile = {schedule.profile} />
     ))}
-  </ScrollView>
+</ScrollView>
    <View style = {styles.header}>
       <Text style = {styles.headerText}>Mock Interview</Text>
       <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>
     </View>
 </View>
+<View style = {[styles.aiContainer, styles.shadowAbove]}>
+    <Pressable style = {styles.startAIButton}>
+        <Text style = {styles.aiText}>
+          Start AI assistant
+        </Text>
+    </Pressable>
+</View>
 <Footer navigation={navigation}/>
+
+
 </>
   )
 }
@@ -36,7 +42,7 @@ export default Interviews
 const styles = StyleSheet.create({
 
 container: {
-    backgroundColor: "white",
+  backgroundColor: "white",
 },
 
 funnel:{
@@ -46,7 +52,7 @@ funnel:{
 
 header:{
     width: 430, 
-      height: 68, 
+    height: 68, 
     paddingLeft: 24, 
     paddingRight: 24, 
     paddingTop: 16, 
@@ -88,26 +94,50 @@ textButton:{
   lineHeight: 22, 
   wordWrap: 'break-word'
 },
-scheduleContainer:{
+aiContainer:{
+  position: 'absolute',
+  bottom: 45,
+  width: 430, 
+  height: 118, 
+  paddingTop: 16, 
+  paddingBottom: 48, 
+  paddingLeft: 24, 
+  paddingRight: 24, 
+  backgroundColor: 'white', 
+  flexDirection: 'column', 
+  justifyContent: 'flex-start', 
+  alignItems: 'flex-start', 
+  gap: 10, 
+  display: 'inline-flex'
 },
-homeButton: {
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
+startAIButton:{
+  width: 384, 
+  height: 54, 
+  paddingLeft: 24, 
+  paddingRight: 24, 
+  paddingTop: 16, 
+  paddingBottom: 16, 
+  backgroundColor: '#005FEE', 
+  borderRadius: 8, 
+  justifyContent: 'center', 
+  alignItems: 'center', 
+  gap: 10, 
+  display: 'inline-flex'
 },
-searchButton: {
-  flex: 1, 
-  justifyContent: 'center',
-  alignItems: 'center',
+aiText:{
+  width: 298, 
+  textAlign: 'center', 
+  color: 'white', 
+  fontSize: 16, 
+  fontFamily: 'Nunito', 
+  fontWeight: '900', 
+  wordWrap: 'break-word'
 },
-searchImageButton: {
-  width: 20,
-  height: 20,
-},
-mockInterviewButton: {
-  flex: 1, 
-  justifyContent: 'center',
-  alignItems: 'center',
+shadowAbove:{
+  shadowColor: '#171717',
+  shadowOffset: { height: 4 },
+  shadowOpacity: 0.25,
+  shadowRadius: 3,
 },
 footer: {
   position: 'absolute',
