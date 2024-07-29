@@ -12,7 +12,7 @@ import Colleges from "../components/colleges";
 import { AppContext } from "../AppContext";
 
 const SpecificJobs = ({ route, navigation }) => {
-  const { cardsData } = useContext(AppContext)
+
   const { job, colleges } = route.params;
   
 
@@ -79,7 +79,7 @@ const SpecificJobs = ({ route, navigation }) => {
           ))}
         </View>
 
-
+        <Pressable onPress = {() => navigation.navigate('Programs', {job})}>
         <View style={[styles.programsContainer, styles.shadowProp]}>
           <Text style={styles.programsText}>Programs or Internships to join</Text>
         </View>
@@ -88,6 +88,7 @@ const SpecificJobs = ({ route, navigation }) => {
           The programs that are recommended are for the best experience for networ...</Text>
           <Ionicons style = {styles.arrowImage} name = 'arrow-forward-outline' size = {50}></Ionicons>
         </View>
+        </Pressable>
       </ScrollView>
 
       

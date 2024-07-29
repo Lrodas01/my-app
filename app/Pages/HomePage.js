@@ -22,9 +22,6 @@ const ActualHome = ({ navigation, route }) => {
           <Text style={styles.headerText}>Home</Text>
           <Ionicons style={styles.funnel} name='funnel-outline' size={36} color={'white'} />
         </View>
-        <Pressable onPress={() => { navigation.goBack('Welcome') }}>
-          <Text>Go back, this page is not done</Text>
-        </Pressable>
         <View>
           <Text style={styles.exploreText}>Explore</Text>
         </View>

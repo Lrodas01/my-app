@@ -14,29 +14,36 @@ import Schedule from './components/schedule'
 import Colleges from './components/colleges';
 import ActualHome from './Pages/HomePage';
 import Footer from './components/Home Page Components/footer';
+import Search from './Pages/Search';
+import SavedSearches from './components/SearchPage/SavedSearches';
+import Programs from './Pages/Programs';
+import Websites from './components/websites';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
 
-<AppProvider>
-      <StatusBar translucent={true} backgroundColor="#005FEE" />
-      <Stack.Navigator initialRouteName="Welcome" >
-        <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-        <Stack.Screen name="Details" component={DetailsScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="SpecificJobs" component={SpecificJobs} options={{ headerShown: false }} />
-        <Stack.Screen name="Interviews" component={Interviews} options={{ headerShown: false }} />
-        <Stack.Screen name="ActualHome" component={ActualHome} options={{ headerShown: false }} />
-
-      </Stack.Navigator>
-</AppProvider>
+ <AppProvider>
+    <StatusBar translucent={true} backgroundColor="#005FEE" />
+     <Stack.Navigator initialRouteName="Welcome" >
+       <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
+       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+       <Stack.Screen name="Details" component={DetailsScreen} options={{ headerShown: false }} />
+       <Stack.Screen name="SpecificJobs" component={SpecificJobs} options={{ headerShown: false }} />
+       <Stack.Screen name="Interviews" component={Interviews} options={{ headerShown: false }} />
+       <Stack.Screen name="ActualHome" component={ActualHome} options={{ headerShown: false }} />
+       <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+       <Stack.Screen name="Programs" component={Programs} options={{ headerShown: false }} />  
+     </Stack.Navigator>
+</AppProvider>  
     // <Colleges/>
     // <Schedule/>
     // <Interviews/>
     // <Footer/>
-    
+    // <SavedSearches/>
+    // <Websites/>
+
   );
 };
 

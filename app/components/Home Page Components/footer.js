@@ -14,7 +14,7 @@ const Footer = ({navigation}) => {
         </Pressable>
       </View>
       <View style={styles.searchButton}>
-        <Pressable onPress={() => navigation.navigate('Interviews')}>
+        <Pressable onPress={() => navigation.navigate('Search')}>
           <Image style={styles.searchImageButton} source={require('../../../assets/images/searchButton.png')} />
         </Pressable>
       </View>
