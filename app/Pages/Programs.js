@@ -3,6 +3,8 @@ import React, { useContext } from 'react'
 import Footer from '../components/Home Page Components/footer'
 import { AppContext } from '../AppContext'
 import Websites from '../components/websites'
+import { ScrollView } from 'react-native-gesture-handler'
+import Initiatives from '../components/Initiatives'
 
 
 const Programs = ({navigation, route}) => {
@@ -12,6 +14,7 @@ const { job, colleges } = route.params;
 
   return (
     <View style = {styles.container}>
+        <ScrollView contentContainerStyle = {{paddingBottom: 100}}>
     <View style = {styles.header}>
       <Text style = {styles.programTitle}>Extracurriculars to Join</Text>
     </View>
@@ -25,10 +28,20 @@ const { job, colleges } = route.params;
         <Websites/>
         <Websites/>
     </View>
+
     </View>
+   <View style = {[styles.joinableProgramsContainer, styles.shadowProp]}>
+        <Text style = {styles.joinableProgramsTitle}>Programs to join</Text>
+        <Text style = {styles.joinableProgramsDescription}>The top three programs in California for computer programming and computer science are:</Text>
 
+    </View>
+        <View style = {styles.initiative}>
+            <Initiatives/>
+            <Initiatives/>
+            <Initiatives/>
+        </View>
 
-
+</ScrollView>
       <Footer navigation = {navigation}/>
     </View>
   )
@@ -119,5 +132,38 @@ websitesDescription:{
 websiteContainer:{
     flexDirection: 'row',
     top: 91,
+},
+joinableProgramsContainer:{
+    top: 64,
+    left: 27,
+    width: 375, 
+    height: 111, 
+    backgroundColor: '#FEFEFE', 
+    borderRadius: 7
+},
+joinableProgramsTitle:{
+    textAlign: 'center', 
+    color: 'black', 
+    fontSize: 25, 
+    fontFamily: 'Nunito', 
+    fontWeight: '600', 
+    lineHeight: 25, 
+    wordWrap: 'break-word'
+},
+joinableProgramsDescription:{
+    left: 28,
+    width: 320, 
+    height: 75, 
+    textAlign: 'center', 
+    color: '#808080', 
+    fontSize: 18, 
+    fontFamily: 'Nunito', 
+    fontWeight: '400', 
+    lineHeight: 25, 
+    wordWrap: 'break-word'
+},
+initiative:{
+    flexDirection: 'row',
+    top: 89,
 },
 })

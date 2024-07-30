@@ -6,13 +6,14 @@ import Internships from '../components/Home Page Components/internships'
 import Recent from '../components/Home Page Components/recent'
 import Footer from '../components/Home Page Components/footer'
 import { AppContext } from '../AppContext'
+import { TabActions } from '@react-navigation/native'
 
 const ActualHome = ({ navigation, route }) => {
 
   const {cardsData, recentJobs, addRecentJob} = useContext(AppContext)
   const handleSelectInterest = (job) => {
     addRecentJob(job);
-    navigation.navigate('SpecificJobs', { job, colleges: job.colleges });
+    navigation.navigate('SpecificJobs', { job, colleges: job.colleges, collegesImage: job.collegesImage });
 };
 
   return (
@@ -42,7 +43,11 @@ const ActualHome = ({ navigation, route }) => {
   >
     {recentJobs.length === 0 ? (
       <View style={styles.scrollableItem}>
-        <Text>Nothing to see here</Text>
+        <View style = {{width: 50,}}> 
+          <Text>
+            Oh there seems to be nothing here.
+          </Text>
+        </View>
       </View>
     ) : (
       recentJobs.map((job, index) => (
@@ -58,8 +63,8 @@ const ActualHome = ({ navigation, route }) => {
           <Text style={styles.intershipText}>Interships for you</Text>
 <ScrollView 
   showsHorizontalScrollIndicator = {false}
-  horizontal 
-  contentContainerStyle={[styles.scrollContent]}>
+  horizontal  //This makes my scrollable horizontal yipeee!!!
+  contentContainerStyle={[styles.scrollContent]}>  
   <View style={styles.scrollableItem}>
     <Internships />
   </View>
@@ -83,7 +88,7 @@ const ActualHome = ({ navigation, route }) => {
   <View style={[styles.scrollableItem, {flexDirection: 'row'}]}>
   {(cardsData.flatMap(option => option.jobs)).map((job, index) => (
       <Interests
-          onPress = {() => navigation.navigate('SpecificJobs', { job, colleges: job.colleges })}
+          onPress = {() => handleSelectInterest(job)}
           key={index}
           jobName={job.titleJob}
           image={job.imageURIJob}
@@ -183,10 +188,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   recentContainer: {
-    
     marginTop: 33,
     marginLeft: 31,
-    marginRight: 31, // Add margin right
+    marginRight: 31,
   },
   recentContent: {
     marginTop: 18,
@@ -196,7 +200,7 @@ const styles = StyleSheet.create({
   intershipContainer: {
     marginTop: 20,
     marginLeft: 29,
-    marginRight: 29, // Add margin right
+    marginRight: 29, 
   },
   intershipText: {
     color: 'black',
@@ -207,8 +211,8 @@ const styles = StyleSheet.create({
   careerContainer: {
     marginTop: 20,
     marginLeft: 31,
-    marginRight: 31, // Add margin right
-    marginBottom: 20, // Add margin bottom to create space between career section and footer
+    marginRight: 31, 
+    marginBottom: 20, 
   },
   careerText: {
     color: 'black',
@@ -216,7 +220,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito',
     fontWeight: '700',
   },
-  // Apply shadow styles to the scrollable items
+
   scrollableItem: {
 
   },

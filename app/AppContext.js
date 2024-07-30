@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-// Create a context
+// Creates a context
 export const AppContext = createContext();
 
-// Create a provider component
+// Creates a provider component
 export const AppProvider = ({ children }) => {
   const [cardsData, setCardsData] = useState([
     {
@@ -16,33 +16,58 @@ export const AppProvider = ({ children }) => {
                 imageURIJob: require('../assets/images/icon.png'),
                 imageURIcard: require("../assets/images/temporary2.png"),
                 description: "Computer programming is the process of designing and writing instructions for computers to perform specific tasks or solve problems.",
-                salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
+                salaryRange: "79K - 140K",
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "UC Berkley",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "CalTech",
+                    collegeImage: require('../assets/collegeImages/caltech.png')
+                  }
+                ],
+                // benefits: [
+                //   {
+                //     salaryRange: "79K - 140K",
+                //     oppertunities: "",
+                //   },
+                // ]
             },
             {
                 titleJob: "Another job",
                 descriptionJob: "This is another description for a job",
                 imageURIJob: require('../assets/images/icon.png'),
                 description: "",
-                colleges: ["Colleges d", "Colleges e ", "Colleges fC"],
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             },
             {
                 titleJob: "Another Third job",
                 descriptionJob: "This is another description for a job",
                 imageURIJob: require('../assets/images/icon.png'),
                 description: "",
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             },
             {
                 titleJob: "Another Fourth job",
                 descriptionJob: "This is another description for a job",
                 imageURIJob: require('../assets/images/icon.png'),
                 description: "",
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             },
         ],
         titleText: "Technology",
         descriptionText: "Code, software development, Python...",
         imageURI: require('../assets/icons-black/technology.png'),
-        selectedImageURI: require('../assets/icons-white/technology.png')
+        selectedImageURI: require('../assets/icons-white/technology.png'),
+
     },
     {
         category: "Health",
@@ -51,11 +76,15 @@ export const AppProvider = ({ children }) => {
                 titleJob: "Medical job 1",
                 descriptionJob: "This is a description for a medical job",
                 imageURIJob: require('../assets/images/medical.webp'),
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             },
             {
                 titleJob: "Medical job 2",
                 descriptionJob: "This is another description for a medical job",
                 imageURIJob: require('../assets/images/medical.webp'),
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             }
         ],
         titleText: "Health",
@@ -70,6 +99,8 @@ export const AppProvider = ({ children }) => {
                 titleJob: "Finance job 1",
                 descriptionJob: "This is a description for a finance job",
                 imageURIJob: require('../assets/images/finance.jpg'),
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             }
         ],
         titleText: "Finance",
@@ -84,6 +115,8 @@ export const AppProvider = ({ children }) => {
                 titleJob: "Creative Arts job 1",
                 descriptionJob: "This is a description for a Creative Arts job",
                 imageURIJob: require('../assets/images/physical.webp'),
+                salaryRange: "79K - $140K",
+                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
             }
         ],
         titleText: "Creative Arts",
@@ -98,6 +131,8 @@ export const AppProvider = ({ children }) => {
               titleJob: "Education job 1",
               descriptionJob: "This is a description for a Education job",
               imageURIJob: require('../assets/images/physical.webp'),
+              salaryRange: "79K - $140K",
+              colleges: ["Colleges A", "Colleges B ", "Colleges C"],
           }
       ],
       titleText: "Education",
@@ -112,6 +147,8 @@ export const AppProvider = ({ children }) => {
             titleJob: "Engineering job 1",
             descriptionJob: "This is a description for a Engineeringjob",
             imageURIJob: require('../assets/images/physical.webp'),
+            salaryRange: "79K - $140K",
+            colleges: ["Colleges A", "Colleges B ", "Colleges C"],
         }
     ],
     titleText: "Engineering",
@@ -126,6 +163,8 @@ export const AppProvider = ({ children }) => {
           titleJob: "Business",
           descriptionJob: "This is a description for a Businessjob",
           imageURIJob: require('../assets/images/physical.webp'),
+          salaryRange: "79K - $140K",
+          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
       }
   ],
   titleText: "Business",
@@ -140,6 +179,8 @@ export const AppProvider = ({ children }) => {
           titleJob: "Outer Space job 1",
           descriptionJob: "This is a description for a Outer Space job",
           imageURIJob: require('../assets/images/physical.webp'),
+          salaryRange: "79K - $140K",
+          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
       }
   ],
   titleText: "Outer Space",
@@ -154,6 +195,8 @@ export const AppProvider = ({ children }) => {
           titleJob: "Communications job 1",
           descriptionJob: "This is a description for a Communications job",
           imageURIJob: require('../assets/images/physical.webp'),
+          salaryRange: "79K - $140K",
+          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
       }
   ],
   titleText: "Communications",
@@ -168,6 +211,8 @@ export const AppProvider = ({ children }) => {
           titleJob: "Writing & Lit job 1",
           descriptionJob: "This is a description for a Writing & Lit job",
           imageURIJob: require('../assets/images/physical.webp'),
+          salaryRange: "79K - 140K",
+          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
       }
   ],
   titleText: "Writing & Lit",

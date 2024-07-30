@@ -1,16 +1,18 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+import CardSheet from '@react-navigation/stack/src/views/Stack/CardSheet'
 
-const Colleges = ({ test }) => {
+const Colleges = ({ collegeName, collegeImage }) => {
   return (
     <View style = {[styles.container, styles.shadowProp]}>
 
       <View>
-        <Image style = {styles.image} source ={require('../../assets/images/icon.png')}/>
+        <Image style = {styles.image} source={collegeImage}/>
       </View>
       <View>
-      <Text style = {styles.text}>{test}</Text>
+      <Text style = {styles.text}>{collegeName}</Text>
       </View>
+      
     </View>
 
   )

@@ -18,13 +18,16 @@ import Search from './Pages/Search';
 import SavedSearches from './components/SearchPage/SavedSearches';
 import Programs from './Pages/Programs';
 import Websites from './components/websites';
+import Initiatives from './components/Initiatives';
+import Benefits from './components/benefits';
+import Basics from './Pages/Basics';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
 
- <AppProvider>
+<AppProvider>
     <StatusBar translucent={true} backgroundColor="#005FEE" />
      <Stack.Navigator initialRouteName="Welcome" >
        <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
@@ -35,15 +38,18 @@ const App = () => {
        <Stack.Screen name="ActualHome" component={ActualHome} options={{ headerShown: false }} />
        <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
        <Stack.Screen name="Programs" component={Programs} options={{ headerShown: false }} />  
+       <Stack.Screen name="Basics" component={Basics} options={{ headerShown: false }} />  
+
      </Stack.Navigator>
-</AppProvider>  
+</AppProvider>   
     // <Colleges/>
     // <Schedule/>
     // <Interviews/>
     // <Footer/>
     // <SavedSearches/>
-    // <Websites/>
-
+    // <Initiatives/>
+    // <Benefits/>
+      // <Basics/>
   );
 };
 

@@ -17,7 +17,7 @@ const Welcome = ( {navigation} ) => {
         </View>
 
         <Pressable style = {styles.buttonContainer} onPress={() => navigation.navigate('Home')}>
-            <Text style = {styles.textButton}>Start finding your interest</Text>
+            <Text style = {styles.textButton}>Lets start with the basics!</Text>
         </Pressable>
         <Pressable style = {styles.buttonContainer2} onPress={() => navigation.navigate('ActualHome')}>
             <Text style = {styles.textButton}>I already know what to do!</Text>
