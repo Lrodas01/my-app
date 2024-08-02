@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Alert } from 'react-native'
 import React from 'react'
 import Footer from '../components/Home Page Components/footer';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -6,6 +6,11 @@ import { ScrollView } from 'react-native-gesture-handler';
 const SetUp = ({route, navigation}) => {
     const { schedule } = route.params;
 
+    const handlePress = () => {
+        Alert.alert('Appointment Made');
+        navigation.navigate('ActualHome')
+    }
+    
   return (
     <View style = {styles.container}>
 
@@ -23,7 +28,7 @@ const SetUp = ({route, navigation}) => {
 
       <Image style = {styles.calender} source ={require('../../assets/templates/calender.png')}/>
 
-    <Pressable style = {styles.setAppointment} onPress = {() => navigation.goBack('ActualHome', {})}>
+    <Pressable style = {styles.setAppointment} onPress = {handlePress}>
       <Text style={styles.month}>{schedule.month} </Text>
       <Text style = {styles.dayth}>{schedule.dayth}</Text>
       <Text style={styles.time}>{schedule.time}</Text>

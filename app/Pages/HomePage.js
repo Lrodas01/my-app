@@ -36,6 +36,7 @@ const ActualHome = ({ navigation, route }) => {
       navigation.navigate('SpecificJobs', { job, colleges: job.colleges, jobs: cardsData[0].jobs });
   };
 
+  
   return (
     <View style={styles.container}>
       <View contentContainerStyle={styles.scrollViewContent}>

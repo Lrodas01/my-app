@@ -9,7 +9,7 @@ const Footer = ({navigation}) => {
   return (
     <View style={styles.footer}>
       <View style={styles.homeButton}>
-        <Pressable style = {[styles.selectedPage, styles.unselectedPage]} onPress={() => navigation.goBack('ActualHome')}>
+        <Pressable style = {[styles.selectedPage, styles.unselectedPage]} onPress={() => navigation.navigate('ActualHome')}>
           <Ionicons name='home-outline' size={25} color='grey' />
         </Pressable>
         {/* <Pressable
