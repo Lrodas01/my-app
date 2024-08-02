@@ -6,17 +6,15 @@ import { AppContext } from '../AppContext';
 
 const DetailsScreen = ({ route, navigation, onPress }) => {
     const { selectedOptions } = route.params;
-    const { cardsData } = useContext(AppContext);
+    const { cardsData, addRecentJob } = useContext(AppContext);
 
     const selectedData = selectedOptions
         .map(option => cardsData.find(card => card.category === option))
         .filter(card => card !== undefined); 
 
-    const { addRecentJob } = useContext(AppContext);
-
     const handleSelectJob = (job) => {
         addRecentJob(job);
-        navigation.navigate('SpecificJobs', { job, colleges: job.colleges });
+        navigation.navigate('SpecificJobs', { job, colleges: job.colleges, jobs: cardsData[0].jobs });
     };
 
     return (

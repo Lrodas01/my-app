@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
-const Internships = () => {
+const Internships = ({internshipsName, internshipsImage}) => {
   return (
     <View style = {[styles.container, styles.shadowProp]}>
-      <Text>interships</Text>
+      <Text style = {styles.text}>{internshipsName}</Text>
+      <View style = {styles.image}>
+      <Image source = {internshipsImage}/>
+      </View>
     </View>
   )
 }
@@ -27,4 +30,19 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3,
     },
+    text:{
+      width: 140,
+      top: 10, 
+      textAlign: 'center', 
+      color: 'black', 
+      fontSize: 14, 
+      fontFamily: 'Nunito', 
+      fontWeight: '400', 
+      wordWrap: 'break-word'
+    },
+    image:{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
 })

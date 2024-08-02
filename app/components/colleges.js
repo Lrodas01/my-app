@@ -37,9 +37,7 @@ shadowProp:{
   shadowRadius: 3,
 },
 text:{
-  position: 'absolute',
-  left: 40,
-  top: 18,
+  top: 14,
   textAlign: 'center', 
   color: 'black', 
   fontSize: 8, 

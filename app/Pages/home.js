@@ -28,8 +28,23 @@ const Home = ({ navigation }) => {
         {/* <Pressable style={styles.buttonContainer} onPress={() => navigation.goBack('Welcome')}>
           <Text style={styles.textButton}>Start finding your interest</Text>
         </Pressable> */}
-        <Text style={styles.welcomeText}>Welcome! lets see what your interests are :)</Text>
+        <Text style={styles.welcomeText}>Basics</Text>
       </View>
+
+      <View style = {[styles.loadingBarContainer, styles.shadowDown]}>
+        <View style = {styles.loadingBar}>
+
+        </View>
+      </View>
+
+      <View>
+        <Text style = {styles.descript}>
+        Okay, have you known any careers that interest you?
+        </Text>
+      </View>
+          <View style = {{height: 100}}>
+
+          </View>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
           <View style = {{flexDirection: 'row',flexWrap: 'wrap', paddingBottom: 20,}}>
         {cardsData.map((card, index) => (
@@ -38,6 +53,7 @@ const Home = ({ navigation }) => {
             titleText={card.titleText}
             descriptionText={card.descriptionText}
             image={card.imageURI}
+            jobCardImagr = {card.jobCardURI}
             selectedImage={card.selectedImageURI}
             onSelect={handleSelect}
             selected={selectedOptions.includes(card.titleText)}
@@ -45,6 +61,7 @@ const Home = ({ navigation }) => {
         ))}
       </View>
       </ScrollView>
+      
       <View style={[styles.footer, styles.shadowProp]}>
         <View style={styles.confirmButtonContainer}>
         <Pressable
@@ -52,11 +69,11 @@ const Home = ({ navigation }) => {
               styles.confirmButton,
               selectedOptions.length === 0 && styles.disabledButton
             ]}
-            onPress={() => navigation.navigate('Details', { selectedOptions })}
+            onPress={() => navigation.navigate('ActualHome', { selectedOptions })}
             disabled={selectedOptions.length === 0}
           >
             <Text style={selectedOptions.length === 0 ? styles.disabledButtonText : styles.confirmButtonText}>
-              Confirm your choices?
+              Apply
             </Text>
           </Pressable>
         </View>
@@ -76,18 +93,19 @@ container: {
     backgroundColor: '#005FEE', // Set your desired background color here
   },
   welcomeHeader: {
-    height: 100, 
-    paddingLeft: 24, 
-    paddingRight: 24, 
-    paddingTop: 16, 
-    paddingBottom: 16, 
-    backgroundColor: '#005FEE', 
-    borderBottomLeftRadius: 8, 
-    borderBottomRightRadius: 8, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    gap: 10, 
-    display: 'inline-flex'
+  width: 430, 
+  height: 66, 
+  paddingLeft: 24, 
+  paddingRight: 24, 
+  paddingTop: 16, 
+  paddingBottom: 16, 
+  backgroundColor: '#005FEE', 
+  borderBottomLeftRadius: 8, 
+  borderBottomRightRadius: 8, 
+  justifyContent: 'center', 
+  alignItems: 'center', 
+  gap: 10, 
+  display: 'inline-flex'
   },
 imageContainer: {
     width: 55,
@@ -123,7 +141,13 @@ shadowProp:{
   shadowColor: '#4D4D4D',
   shadowOffset: { height: -12 },
   shadowOpacity: 0.16,
-  shadowRadius: 3,
+  shadowRadius: 16,
+},
+shadowDown:{
+  shadowColor: '#4D4D4D',
+  shadowOffset: { height: 4 },
+  shadowOpacity: 0.25,
+  shadowRadius: 4,
 },
 confirmButtonContainer: {
     top: 30,
@@ -175,6 +199,31 @@ disabledButtonText: {
     fontWeight: '900', 
     wordWrap: 'break-word'
   },
+  loadingBarContainer:{
+    top: 21,
+    left: 30,
+    width: 370, 
+    height: 55, 
+    backgroundColor: 'white', 
+    borderRadius: 27.50
+  },
+  loadingBar:{
+    width: 185, 
+    height: 55, 
+    backgroundColor: '#005FEE', 
+    borderRadius: 25.50
+  },
+  descript:{
+    top: 82,
+    left: 24,
+    width: 382, 
+    color: 'black', 
+    fontSize: 20, 
+    fontFamily: 'Nunito', 
+    fontWeight: '700', 
+    lineHeight: 22, 
+    wordWrap: 'break-word'
+  }
 });
 
 export default Home;

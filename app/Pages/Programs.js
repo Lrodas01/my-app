@@ -14,7 +14,7 @@ const { job, colleges } = route.params;
 
   return (
     <View style = {styles.container}>
-        <ScrollView contentContainerStyle = {{paddingBottom: 100}}>
+        <ScrollView contentContainerStyle = {{paddingBottom: 200}}>
     <View style = {styles.header}>
       <Text style = {styles.programTitle}>Extracurriculars to Join</Text>
     </View>
@@ -25,8 +25,8 @@ const { job, colleges } = route.params;
         <Text style = {styles.websitesTitle}>Websites we recommend</Text>
         <Text style = {styles.websitesDescription}>For {job.titleJob}, the top two recommended websites are:</Text>
     <View style = {styles.websiteContainer}>
-        <Websites/>
-        <Websites/>
+        <Websites name ={'CodeAcademy.com'} image={''}/>
+        <Websites name={'FreeCodeCamp.org'} image={''}/>
     </View>
 
     </View>

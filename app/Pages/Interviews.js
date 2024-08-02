@@ -13,23 +13,27 @@ const Interviews = ({navigation, route}) => {
 <>
 <View style={[styles.container]}>
    
-<ScrollView contentContainerStyle = {{paddingBottom: 375, bottom: 20,}}>
-    {scheduleData.map((schedule, index) => (
-        <Schedule key = {index} name = {schedule.name} time = {schedule.time} career = {schedule.career} profile = {schedule.profile} />
+<View style = {{paddingBottom: 0, top: 100, left: 23}}>
+    {scheduleData.map((schedule, name) => (
+        <Schedule 
+        key = {name} 
+        name = {schedule.name} 
+        time = {schedule.time} 
+        career = {schedule.career} 
+        profile = {schedule.profile} 
+        month = {schedule.monthShort} 
+        day = {schedule.day}
+        onPress={() => navigation.navigate('SetUp', {schedule})}
+        // onPress ={() => {console.log('it!')}}
+        />
     ))}
-</ScrollView>
+</View>
    <View style = {styles.header}>
       <Text style = {styles.headerText}>Mock Interview</Text>
       <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>
     </View>
 </View>
-<View style = {[styles.aiContainer, styles.shadowAbove]}>
-    <Pressable style = {styles.startAIButton}>
-        <Text style = {styles.aiText}>
-          Start AI assistant
-        </Text>
-    </Pressable>
-</View>
+
 <Footer navigation={navigation}/>
 
 
@@ -42,6 +46,7 @@ export default Interviews
 const styles = StyleSheet.create({
 
 container: {
+  height: '100%',
   backgroundColor: "white",
 },
 

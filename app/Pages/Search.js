@@ -1,15 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Footer from '../components/Home Page Components/footer'
 import { Ionicons } from '@expo/vector-icons'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import SavedSearches from '../components/SearchPage/SavedSearches'
 import { AppContext } from '../AppContext'
 import Recommended from '../components/SearchPage/recommended'
+import Searchfilter from '../components/searchfilter'
 
-const Search = ({ navigation }) => {
+const Search = ({ selectedOptions, navigation, clicked, searchPhrase, setSearchPhrase, setCLicked}) => {
 
-    const { cardsData } = useContext(AppContext)
+    const { jobData } = useContext(AppContext);
+    const [ input, setInput ] = useState("");
+    const handleSearch = (text) => {
+        setInput(text);
+    }
+
 
   return (
 <View style = {styles.container}>
@@ -17,36 +23,17 @@ const Search = ({ navigation }) => {
     <View style = {styles.header}> 
         <Text style = {styles.headerText}>Search Page</Text>
     </View>
-    <ScrollView contentContainerStyle = {{paddingBottom: 125,}}>
+   
     <View style = {styles.searchContainer}>
         <Text style = {styles.searchText}>Search</Text>
         <View style={[styles.searchBar, styles.searchBarOutline]}>
-          <TextInput style={[styles.searchBarText]}>
-            Search...
-          </TextInput>                                                                                                                        
-          <View style={styles.ionoconsContainer}>
-            <Ionicons style={styles.ionocon} name='close-outline' size={16} />
-          </View>
+<TextInput value={input} autoCapitalize="none" autoCorrect={false} onChangeText={(text) => handleSearch(text)} clearButtonMode = 'always' style={[styles.searchBarText]} placeholder='Search...'/>                                                                                                                        
+
         </View>
     </View>
-
-        <Text style = {styles.recentTextContainer}>Recent Searches</Text>
-    <View style = {styles.recentSearchesContainer}>
-        <SavedSearches/>
-        <SavedSearches/>
-        <SavedSearches/>
-        <SavedSearches/>
-    </View>
-        <Text style = {styles.recommendedCareersContainer}>Recommended Careers for you</Text>
-    <View style = {styles.recommendedCareers}>
-        <Recommended/>
-        <Recommended/>
-        <Recommended/>
-        <Recommended/>
-    </View>
-
-
-    </ScrollView>
+<View style={{top: 20}}>
+    <Searchfilter data = {jobData} input = {input} setInput= {setInput}/>
+</View>
     <Footer navigation={navigation}/>
 </View>
   )
@@ -123,9 +110,9 @@ searchBarOutline: {
     borderColor: '#D9D9D9',
 },
 searchBarText: {
-    right: 20,
+    right: 0,
     height: 20,
-    width: 301, 
+    width: 351, 
     color: '#1E1E1E', 
     fontSize: 16, 
     fontFamily: 'Inter', 

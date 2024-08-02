@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
-const Websites = () => {
+const Websites = ({name, image}) => {
   return (
     <View style = {styles.container}>
-      <Text style = {styles.titleText}>Website Name</Text>
+      <Text style = {styles.titleText}>{name}</Text>
     <View>
     <View style = {styles.imageContainer}>
-        <Text>Temporary Image container</Text>
+        <Text>{image}</Text>
     </View>
 
     <Image/>
@@ -27,6 +27,7 @@ container:{
     borderRadius: 7
 },
 titleText:{
+    top: 11,
     textAlign: 'center', 
     color: 'black', 
     fontSize: 14, 

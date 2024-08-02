@@ -15,8 +15,6 @@ export const AppProvider = ({ children }) => {
                 descriptionJob: "Computer programming is the process of designing and writing instructions for computers to perform specific tasks or solve problems.",
                 imageURIJob: require('../assets/images/icon.png'),
                 imageURIcard: require("../assets/images/temporary2.png"),
-                description: "Computer programming is the process of designing and writing instructions for computers to perform specific tasks or solve problems.",
-                salaryRange: "79K - 140K",
                 colleges: [
                   {
                     collegeName: "Stanford",
@@ -31,20 +29,33 @@ export const AppProvider = ({ children }) => {
                     collegeImage: require('../assets/collegeImages/caltech.png')
                   }
                 ],
-                // benefits: [
-                //   {
-                //     salaryRange: "79K - 140K",
-                //     oppertunities: "",
-                //   },
-                // ]
+                benefits: [
+                  {
+                    salaryRange: "79K - 140K",
+                    oppertunities: "",
+                  },
+                ]
             },
             {
-                titleJob: "Another job",
-                descriptionJob: "This is another description for a job",
+                titleJob: "Information Security Analyst",
+                descriptionJob: "Protects an organization's computer systems from cyber attacks and data breaches",
                 imageURIJob: require('../assets/images/icon.png'),
-                description: "",
-                salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
+                imageURIcard: require("../assets/images/temporary2.png"),
+                salaryRange: "89K - 96K",
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "UC Berkley",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],
             },
             {
                 titleJob: "Another Third job",
@@ -65,7 +76,8 @@ export const AppProvider = ({ children }) => {
         ],
         titleText: "Technology",
         descriptionText: "Code, software development, Python...",
-        imageURI: require('../assets/icons-black/technology.png'),
+        imageURI: require('../assets/icons-white/technology.png'),
+        jobCardURI: require('../assets/selection/technology.png'),
         selectedImageURI: require('../assets/icons-white/technology.png'),
 
     },
@@ -89,7 +101,8 @@ export const AppProvider = ({ children }) => {
         ],
         titleText: "Health",
         descriptionText: "Medical research, nursing, surgeon...",
-        imageURI: require('../assets/icons-black/health.png'),
+        imageURI: require('../assets/icons-white/health.png'),
+        jobCardURI: require('../assets/selection/health.png'),
         selectedImageURI: require('../assets/icons-white/health.png'),
     },
     {
@@ -105,7 +118,8 @@ export const AppProvider = ({ children }) => {
         ],
         titleText: "Finance",
         descriptionText: "investment banking, financial analysis...",
-        imageURI: require('../assets/icons-black/finance.png'),
+        imageURI: require('../assets/icons-white/finance.png'),
+        jobCardURI: require('../assets/selection/finance.png'),
         selectedImageURI: require('../assets/icons-white/finance.png'),
     },
     {
@@ -121,7 +135,8 @@ export const AppProvider = ({ children }) => {
         ],
         titleText: "Creative Arts",
         descriptionText: "UX/UI designer, filmmaking, painter...",
-        imageURI: require('../assets/icons-black/creative.png'),
+        imageURI: require('../assets/icons-white/creative.png'),
+        jobCardURI: require('../assets/selection/art.png'),
         selectedImageURI: require('../assets/icons-white/creative.png'),
     },
     {
@@ -137,7 +152,8 @@ export const AppProvider = ({ children }) => {
       ],
       titleText: "Education",
       descriptionText: "Teaching, educational administration...",
-      imageURI: require('../assets/icons-black/education.png'),
+      imageURI: require('../assets/icons-white/education.png'),
+      jobCardURI: require('../assets/selection/education.png'),
       selectedImageURI: require('../assets/icons-white/education.png'),
   },
   {
@@ -153,7 +169,8 @@ export const AppProvider = ({ children }) => {
     ],
     titleText: "Engineering",
     descriptionText: "civil engineering, mechanical engineering...",
-    imageURI: require('../assets/icons-black/engineer.png'),
+    imageURI: require('../assets/icons-white/engineer.png'),
+    jobCardURI: require('../assets/selection/engineer.png'),
     selectedImageURI: require('../assets/icons-white/engineer.png'),
 },
 {
@@ -169,7 +186,8 @@ export const AppProvider = ({ children }) => {
   ],
   titleText: "Business",
   descriptionText: "entrepreneurship, marketing...",
-  imageURI: require('../assets/icons-black/business.png'),
+  imageURI: require('../assets/icons-white/business.png'),
+  jobCardURI: require('../assets/selection/business.png'),
   selectedImageURI: require('../assets/icons-white/business.png'),
 },
 {
@@ -185,7 +203,8 @@ export const AppProvider = ({ children }) => {
   ],
   titleText: "Outer Space",
   descriptionText: "Astronaut, Cosmologist...",
-  imageURI: require('../assets/icons-black/space.png'),
+  imageURI: require('../assets/icons-white/space.png'),
+  jobCardURI: require('../assets/selection/space.png'),
   selectedImageURI: require('../assets/icons-white/space.png'),
 },
 {
@@ -201,7 +220,8 @@ export const AppProvider = ({ children }) => {
   ],
   titleText: "Communications",
   descriptionText: "public relations, journalism...",
-  imageURI: require('../assets/icons-black/communication.png'),
+  imageURI: require('../assets/icons-white/communication.png'),
+  jobCardURI: require('../assets/selection/communication.png'),
   selectedImageURI: require('../assets/icons-white/communication.png'),
 },
 {
@@ -217,43 +237,111 @@ export const AppProvider = ({ children }) => {
   ],
   titleText: "Writing & Lit",
   descriptionText: "Writer, author, editor...",
-  imageURI: require('../assets/icons-black/literature.png'),
+  imageURI: require('../assets/icons-white/book.png'),
+  jobCardURI: require('../assets/selection/literature.png'),
   selectedImageURI: require('../assets/icons-white/book.png'),
 },
 ]); 
+
+const [jobData, setJobData] = useState([
+    {
+      titleJob: "Computer Programming",
+      descriptionJob: "Computer programming is the process of designing and writing instructions for computers to perform specific tasks or solve problems.",
+      imageURIJob: require('../assets/images/icon.png'),
+      imageURIcard: require("../assets/images/temporary2.png"),
+      salaryRange: "10K - 30K"
+  },
+  {
+      titleJob: "Information Security Analyst",
+      descriptionJob: "Protects an organization's computer systems from cyber attacks and data breaches",
+      imageURIJob: require('../assets/images/icon.png'),
+      imageURIcard: require("../assets/images/temporary2.png"),
+      salaryRange: "89K - 96K",
+
+  },
+  {
+      titleJob: "Another Third job",
+      descriptionJob: "This is another description for a job",
+      imageURIJob: require('../assets/images/icon.png'),
+      description: "",
+      salaryRange: "79K - $140K",
+  },
+  {
+      titleJob: "Another Fourth job",
+      descriptionJob: "This is another description for a job",
+      imageURIJob: require('../assets/images/icon.png'),
+      description: "",
+      salaryRange: "79K - $140K",
+  },
+
+  ])
 
   const [scheduleData, setScheduleData] = useState ([
     {
        name: 'Liam Mitchel', 
        time: '9:00AM',
        career: 'Software Programmer',
-       profile: require('../assets/profilesa/profile1.png')
+       profile: require('../assets/profilesa/profile1.png'),
+       monthShort: 'Aug',
+       month: 'August',
+       day: '13',
+       dayth: '13th',
+       description: 'I am a very determined person who wants to help out with technology',
+       funFact1: 'Knows HTML,CSS, and JS',
+       funFact2: 'Learning Python'
     },
     { 
       name: 'Emma Johnson', 
       time: '10:00AM',
       career: 'Financial Analyst',
-      profile: require('../assets/profilesa/profile2.png')
+      profile: require('../assets/profilesa/profile2.png'),
+      monthShort: 'Aug',
+      month: 'August',
+      day: '13',
+      dayth: '13th',
+      description: 'I am a very determined person who wants to help out with technology',
+      funFact1: 'Knows HTML,CSS, and JS',
+      funFact2: 'Learning Python'
     },
     { 
       name: 'Oliver Smith', 
       time: '11:00AM', 
       career: 'Graphic Designer',
-      profile: require('../assets/profilesa/profile3.png')
+      profile: require('../assets/profilesa/profile3.png'),
+      monthShort: 'Aug',
+      month: 'August',
+      day: '13',
+      dayth: '13th',
+      description: 'I am a very determined person who wants to help out with technology',
+      funFact1: 'Knows HTML,CSS, and JS',
+      funFact2: 'Learning Python'
     },
     { 
       name: 'Ava Brown', 
       time: '12:00PM',
       career: 'Marketing Manager',
-      profile: require('../assets/profilesa/profile4.png')
+      profile: require('../assets/profilesa/profile4.png'),
+      monthShort: 'Aug',
+      month: 'August',
+      day: '13',
+      dayth: '13th',
+      description: 'I am a very determined person who wants to help out with technology',
+      funFact1: 'Knows HTML,CSS, and JS',
+      funFact2: 'Learning Python'
 
     },
     { 
       name: 'Ethan Brooks', 
       time: '12:00PM',
       career: 'Chef',
-      profile: require('../assets/profilesa/unc.png')
-
+      profile: require('../assets/profilesa/unc.png'),
+      monthShort: 'Aug',
+      month: 'August',
+      day: '13',
+      dayth: '13th',
+      description: 'I am a very determined person who wants to help out with technology',
+      funFact1: 'Knows HTML,CSS, and JS',
+      funFact2: 'Learning Python',
     },
   ])
 
@@ -273,6 +361,8 @@ export const AppProvider = ({ children }) => {
 
   ])
 
+
+
   const [recentJobs, setRecentJobs] = useState([]);
 
   const addRecentJob = (job) => {
@@ -284,7 +374,7 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider 
-    value={{ cardsData, setCardsData, scheduleData, setScheduleData, careerInterests, setCareerInterests, recentJobs, addRecentJob }}
+    value={{ cardsData, setCardsData, scheduleData, setScheduleData, careerInterests, setCareerInterests, recentJobs, addRecentJob, jobData, setJobData, }}
     >
       {children}
     </AppContext.Provider>

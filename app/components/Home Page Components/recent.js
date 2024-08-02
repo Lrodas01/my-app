@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import React from 'react';
 
-const Recent = ({ job, onPress }) => {
+const Recent = ({ job, onPress, jobName, image }) => {
   return (
     <Pressable onPress={onPress} style={[styles.container, styles.shadowProp]}>
-      <Text style={styles.jobTitle}>{job.titleJob}</Text>
-      <Image source={job.imageURIJob} style={styles.image} />
+      <Text style={styles.jobTitle}>{jobName}</Text>
+      <Image source={image} style={styles.image} />
     </Pressable>
   );
 };

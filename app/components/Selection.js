@@ -1,12 +1,8 @@
-import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
+import { Text, View, StyleSheet, Image, Pressable, ImageBackground, DevSettings } from 'react-native';
 import React, { useContext, useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import { AppContext } from '../AppContext';
 
-const Selection = ({ titleText, descriptionText, image, selectedImage, onSelect, selected }) => {
+const Selection = ({ titleText, descriptionText, image, onSelect, selected, jobCardImagr }) => {
 
-
-  const { cardsData } = useContext(AppContext)
 
   const [isSelected, setIsSelected] = useState(selected);
 
@@ -17,24 +13,31 @@ const Selection = ({ titleText, descriptionText, image, selectedImage, onSelect,
   };
 
 
-
   return (
     <Pressable
       style={[styles.box, isSelected && styles.selectedBox, styles.shadowProp, styles.boxContainer]}
       onPress={onPressFunction}
     >
+      <ImageBackground  style = {styles.jobCardImagr} imageStyle={{borderRadius: 8}} source = {jobCardImagr}>
+
+    <View style = {[{height: 112, borderRadius: 8,} ,isSelected && styles.selectedBox]}>
+ 
       <Image
-        source={isSelected ? selectedImage : image}
+        source={image}
         style={styles.image}
       />
       <View>
         <Text style={[styles.titleBox, isSelected && styles.selectedBox]}>{titleText}</Text>
       </View>
       <View>
-        <Text style={[styles.descriptionBox, isSelected && styles.selectedBox]}>{descriptionText}</Text>
+        <Text style={[styles.descriptionBox ,isSelected && styles.shownText, isSelected && styles.selectedBox]}>{descriptionText}</Text>
       </View>
+      
+    </View>  
+      </ImageBackground>
     </Pressable>
   );
+
 };
 
 const styles = StyleSheet.create({
@@ -65,22 +68,24 @@ const styles = StyleSheet.create({
   },
   selectedBox: {
     backgroundColor: '#005FEE',
-    color: 'white',
   },
   titleBox: {
     paddingTop: 26,
     top: 20,
+    left: 10,
     width: 154,
-    color: 'black',
+    color: 'white',
     fontSize: 15,
     fontFamily: 'Nunito',
     fontWeight: '700',
     wordWrap: 'break-word',
   },
   descriptionBox: {
+    top: 20,
+    left: 10,
     width: 154,
-    height: 32,
-    color: 'black',
+    height: 0,
+    color: 'white',
     fontSize: 12,
     fontFamily: 'Nunito',
     fontWeight: '400',
@@ -95,6 +100,26 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     border: '1.50px white solid',
   },
+  jobCardImagr:{
+    height: 120,
+    width: 173,
+    bottom: 9.6,
+    right: 12,
+    borderRadius: 8
+  },
+  shownText:{
+    top: 20,
+    height: 32,
+    width: 161, 
+    color: 'white', 
+    fontSize: 12, 
+    fontFamily: 'Nunito', 
+    fontWeight: '400', 
+    wordWrap: 'break-word'
+  },
+  opacityBox: {
+
+  }
 });
 
 export default Selection;

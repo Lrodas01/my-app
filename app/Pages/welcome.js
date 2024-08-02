@@ -2,7 +2,8 @@ import { View, Text, StyleSheet, Image, Pressable, StatusBar, SafeAreaView } fro
 import React from 'react'
 
 
-const Welcome = ( {navigation} ) => {
+const Welcome = ( { selectedOptions, navigation} ) => {
+
   return (
     <>
 
@@ -16,10 +17,10 @@ const Welcome = ( {navigation} ) => {
             <Text style = {styles.companyName}>Occupi</Text>
         </View>
 
-        <Pressable style = {styles.buttonContainer} onPress={() => navigation.navigate('Home')}>
+        <Pressable style = {styles.buttonContainer} onPress={() => navigation.navigate('Basics')}>
             <Text style = {styles.textButton}>Lets start with the basics!</Text>
         </Pressable>
-        <Pressable style = {styles.buttonContainer2} onPress={() => navigation.navigate('ActualHome')}>
+        <Pressable style = {styles.buttonContainer2} onPress={() => navigation.navigate('Home')}>
             <Text style = {styles.textButton}>I already know what to do!</Text>
         </Pressable>
     </View>
