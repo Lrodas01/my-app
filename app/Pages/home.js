@@ -7,6 +7,7 @@ import { AppContext } from '../AppContext';
 
 const Home = ({ navigation }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const { cardsData, addSelectedCategory, selectedCategories } = useContext(AppContext);
 
   const handleSelect = (title, isSelected) => {
     setSelectedOptions((prev) => {
@@ -16,9 +17,15 @@ const Home = ({ navigation }) => {
         return prev.filter((option) => option !== title);
       }
     });
+
+    console.log("Before adding the category: ", selectedCategories);
+    
+    console.log("Title: ", title);
+    addSelectedCategory(title);
+
+    console.log("After adding the category: ", selectedCategories);
   };
 
-  const { cardsData } = useContext(AppContext);
 
   return (
 

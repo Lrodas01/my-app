@@ -87,6 +87,10 @@ textButton:{
     fontWeight: '900', 
     wordWrap: 'break-word'
 },
+iconImage:{
+    width: 140,
+    height: 115
+}
 });
 
 export default Welcome

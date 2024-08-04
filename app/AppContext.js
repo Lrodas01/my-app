@@ -365,6 +365,8 @@ const [jobData, setJobData] = useState([
 
   const [recentJobs, setRecentJobs] = useState([]);
 
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
   const addRecentJob = (job) => {
     setRecentJobs((prevJobs) => {
       const updatedJobs = [job, ...prevJobs.filter((j) => j.titleJob !== job.titleJob)];
@@ -372,9 +374,19 @@ const [jobData, setJobData] = useState([
     });
   };
 
+
+  // Function to add a selected category to the list of selected. Currently it does not update correctly, we can fix this later
+  const addSelectedCategory = (category) => {
+    setSelectedCategories((prevCategory) => {
+      const updatedCategories = [category, ...prevCategory.filter((c) => c !== category)];
+      return updatedCategories;
+    });
+  }
+
+
   return (
     <AppContext.Provider 
-    value={{ cardsData, setCardsData, scheduleData, setScheduleData, careerInterests, setCareerInterests, recentJobs, addRecentJob, jobData, setJobData, }}
+    value={{ cardsData, setCardsData, scheduleData, setScheduleData, careerInterests, setCareerInterests, recentJobs, addRecentJob, jobData, setJobData, addSelectedCategory, selectedCategories }}
     >
       {children}
     </AppContext.Provider>

@@ -1,16 +1,14 @@
 import { Pressable, StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import React, { useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import Interests from "../components/Home Page Components/interests";
-import Internships from "../components/Home Page Components/internships";
-import Recent from "../components/Home Page Components/recent";
-import Footer from "../components/Home Page Components/footer";
-import { AppContext } from "../AppContext";
-import { TabActions } from "@react-navigation/native";
-import FilteredJobs from "../components/filteredJobs";
+import Interests from "../../components/Home Page Components/interests";
+import Internships from "../../components/Home Page Components/internships";
+import Recent from "../../components/Home Page Components/recent";
+import Footer from "../../components/Home Page Components/footer";
+import { AppContext } from "../../AppContext";
 
 const ActualHome = ({ navigation, route }) => {
-  const { cardsData, recentJobs, addRecentJob } = useContext(AppContext);
+  const { cardsData, recentJobs, selectedCategories, addRecentJob } = useContext(AppContext);
 
   const handleSelectInterest = (job) => {
     addRecentJob(job);
@@ -21,11 +19,24 @@ const ActualHome = ({ navigation, route }) => {
       job,
       colleges: job.colleges,
       collegesImage: job.collegesImage,
-      jobs: cardsData[0].jobs,
+      jobs: cardsData[0].jobs
     });
   };
 
-  const { selectedOptions } = route.params;
+  // const { selectedOptions } = route.params || { selectedOptions: [] };
+  const selectedOptions = selectedCategories;
+  // const { selectedOptions } = route.params;
+  // console.log('ROUTE PARAMS: ', route.params )
+
+  // console.log({selectedOptions})
+
+  console.log("Selected catergories in HomePage.js: ", selectedCategories);
+
+  
+  // console.log("\nThese are the jobs\n", recentJobs);
+
+  // console.log("Selected Options keys: ", Object.keys(selectedOptions));
+  
 
   const selectedData = selectedOptions
       .map(option => cardsData.find(card => card.category === option))
@@ -44,7 +55,6 @@ const ActualHome = ({ navigation, route }) => {
           <Text style={styles.headerText}>Home</Text>
           <Pressable style={styles.funnel} onPress = {() => navigation.navigate('Home')}>
           <Ionicons
-            
             name="funnel-outline"
             size={36}
             color={"white"}
@@ -57,7 +67,7 @@ const ActualHome = ({ navigation, route }) => {
           <View style = {{flexDirection: "row"}}>
             <Pressable style  = {[styles.resumeButton, styles.shadowProp]}  onPress = {()=> navigation.navigate('Basics') }>
               <Text style = {styles.resumeButtonText}>Making a resume</Text>
-              <Image style = {{bottom: 11, left: 5}} source = {require('../../assets/icons-black/resume.png')}/>
+              <Image style = {{bottom: 11, left: 5}} source = {require('../../../assets/icons-black/resume.png')}/>
             </Pressable>
           </View>
         <View style={styles.recentContainer}>
@@ -86,13 +96,13 @@ const ActualHome = ({ navigation, route }) => {
             contentContainerStyle={[styles.scrollContent]}
           >
             <View style={styles.scrollableItem}>
-              <Internships internshipsName={'Google'} internshipsImage={require('../../assets/interships/google.png')}/>
+              <Internships internshipsName={'Google'} internshipsImage={require('../../../assets/interships/google.png')}/>
             </View>
             <View style={styles.scrollableItem}>
-              <Internships internshipsName={'NASA‎ ‎ ‎ '} internshipsImage={require('../../assets/interships/nasa.png')}/>
+              <Internships internshipsName={'NASA‎ ‎ ‎ '} internshipsImage={require('../../../assets/interships/nasa.png')}/>
             </View>
             <View style={styles.scrollableItem}>
-              <Internships internshipsName={'Microsoft'} internshipsImage={require('../../assets/interships/microsoft.png')}/>
+              <Internships internshipsName={'Microsoft'} internshipsImage={require('../../../assets/interships/microsoft.png')}/>
             </View>
           </ScrollView>
         </View>
@@ -118,7 +128,8 @@ const ActualHome = ({ navigation, route }) => {
           </ScrollView>
         </View>
       </View>
-      <Footer navigation={navigation} />
+      <Footer navigation = {navigation} selectedOptions = {selectedOptions}/>
+      <Image style = {styles.home} source = {require('../../../assets/footer/homeOn.png')} />
     </View>
   );
 };
@@ -129,6 +140,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    height: '100%'
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -255,6 +267,16 @@ const styles = StyleSheet.create({
     fontFamily: "Nunito",
     fontWeight: "700",
   },
+  home:{
+    position: 'absolute',
+    width: 22,
+    height: 22,
+    left: 61,
+    bottom: 26,
+    
+  },
 
   scrollableItem: {},
 });
+
+//call AppContext, which would hold the categories, 

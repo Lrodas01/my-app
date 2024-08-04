@@ -1,8 +1,19 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
+import Artificial from '../../../components/Artificial'
 
 const TemplateThree = ({navigation}) => {
+
+    const [showComponent, setShowComponent] = useState(false)
+
+    useEffect(() => {
+        setInterval(() => {
+            setShowComponent(true)
+        }, 3000)
+    }, [])
+
+
   return (
     <View style = {styles.container}>
         <View style = {styles.header}>
@@ -13,8 +24,9 @@ const TemplateThree = ({navigation}) => {
             </Pressable>
 
             </View>
-        </View>
-    <View contentContainerStyle= {{paddingBottom: 0}}>
+        </View>    
+
+    <ScrollView contentContainerStyle= {{paddingBottom: 0}}>
         <View>
             <Text style = {styles.titleText}>This template is design to help you know the basics of making a resume!</Text>
         </View>
@@ -44,7 +56,11 @@ const TemplateThree = ({navigation}) => {
         <TextInput placeholder='Any soft skills or previous skills you can apply at the job' style = {{bottom: 289, left: 28}}/>
 
 
-    </View>
+    </ScrollView>
+
+    <View style ={{position: 'absolute', right: 70, top: 400}}>
+            {showComponent && <Artificial onPress={()=>navigation.navigate('')}/>}
+        </View>
 
     </View>
 

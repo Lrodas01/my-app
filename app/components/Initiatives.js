@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 
-const Initiatives = () => {
+const Initiatives = ({name, image, onPress}) => {
   return (
-    <View style = {[styles.container, styles.shadowProp]}>
-      <Text style = {styles.programTitle}>Programs</Text>
-    </View>
+    <Pressable onPress = {onPress} style = {[styles.container, styles.shadowProp]}>
+      <Text style = {styles.programTitle}>{name}</Text>
+      <View>
+        <Image style = {styles.image} source = {image}/>
+      </View>
+    </Pressable>
+
   )
 }
 
@@ -36,4 +40,10 @@ programTitle:{
   lineHeight: 10, 
   wordWrap: 'break-word'
 },
+image:{
+  top: 30,
+  left: 20,
+  maxWidth: 75,
+  height: 34
+}
 })

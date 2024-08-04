@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useContext, useState } from 'react'
-import Footer from '../components/Home Page Components/footer'
-import { Ionicons } from '@expo/vector-icons'
+
+// import { Ionicons } from '@expo/vector-icons'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
-import SavedSearches from '../components/SearchPage/SavedSearches'
-import { AppContext } from '../AppContext'
-import Recommended from '../components/SearchPage/recommended'
-import Searchfilter from '../components/searchfilter'
+// import SavedSearches from '../components/SearchPage/SavedSearches'
+import { AppContext } from '../../AppContext'
+// import Recommended from '../components/SearchPage/recommended'
+import Searchfilter from '../../components/searchfilter'
+import Footer from "../../components/Home Page Components/footer";
 
 const Search = ({ selectedOptions, navigation, clicked, searchPhrase, setSearchPhrase, setCLicked}) => {
 
@@ -34,7 +35,8 @@ const Search = ({ selectedOptions, navigation, clicked, searchPhrase, setSearchP
 <View style={{top: 20}}>
     <Searchfilter data = {jobData} input = {input} setInput= {setInput}/>
 </View>
-    <Footer navigation={navigation}/>
+<Footer navigation = {navigation} selectedOptions = {selectedOptions}/>
+<Image style = {styles.searchOn} source = {require('../../../assets/footer/searchOn.png')}/>
 </View>
   )
 }
@@ -150,5 +152,13 @@ recommendedCareersContainer:{
 recommendedCareers:{
     top: 42,
     left: 24,
+},
+searchOn:{
+    position: 'absolute',
+    width: 32,
+    height: 32,
+    bottom: 21,
+    left: 199.2,
+
 }
 })

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { StyleSheet, Text, useColorScheme, View, Image } from 'react-native'
 import React, { useContext } from 'react'
 import Footer from '../components/Home Page Components/footer'
 import { AppContext } from '../AppContext'
@@ -10,6 +10,25 @@ import Initiatives from '../components/Initiatives'
 const Programs = ({navigation, route}) => {
 
 const { job, colleges } = route.params;
+
+const interships = [
+    {
+        name: 'Roit Games Intership',
+        image: ''
+    },
+    {
+        name: 'Engineer Intern',
+        image: require('../../assets/interships/caltech.png')
+    },
+    {
+        name: 'Urban TXT',
+        image: require('../../assets/interships/txt.png'),
+        description: 'Urban TXT (Teens Exploring Technology) is a non-profit organization dedicated to empowering young men of color from low-income communities in Los Angeles through technology, leadership, and entrepreneurship education.',
+        email: 'info@urbantxt.com',
+        web: 'urbantxt.org',
+        address: '3655 South Grand Ave.  Los Angeles, CA 90007 Ste. 220'
+    },
+]
 
 
   return (
@@ -31,16 +50,24 @@ const { job, colleges } = route.params;
 
     </View>
    <View style = {[styles.joinableProgramsContainer, styles.shadowProp]}>
-        <Text style = {styles.joinableProgramsTitle}>Programs to join</Text>
+        <Text style = {styles.joinableProgramsTitle}>Internships to join</Text>
         <Text style = {styles.joinableProgramsDescription}>The top three programs in California for computer programming and computer science are:</Text>
 
     </View>
         <View style = {styles.initiative}>
-            <Initiatives/>
-            <Initiatives/>
-            <Initiatives/>
-        </View>
+            {interships.map((intern) => (
+                <Initiatives 
+                name = {intern.name} 
+                image = {intern.image}
+                onPress = {() => navigation.navigate('Internships', {intern})}
+                />
+            ))}
+            {/* <Initiatives name={'Roit Games Internship'} image={''}/>
+            <Initiatives name={'Engineer Intern'} image={require('../../assets/interns/caltech.png')}/>
+            <Initiatives name={'Urban TXT'} image={require('../../assets/interns/txt.png')}/> */}
 
+        </View>
+            <Image style={styles.image} source ={require('../../assets/interships/riot.png')}/>
 </ScrollView>
       <Footer navigation = {navigation}/>
     </View>
@@ -165,5 +192,11 @@ joinableProgramsDescription:{
 initiative:{
     flexDirection: 'row',
     top: 89,
+},
+image:{
+    width: 50,
+    height: 50,
+    left: 50,
+    top: 20,
 },
 })

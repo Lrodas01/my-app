@@ -1,16 +1,19 @@
 import { Pressable, ScrollView, StyleSheet, Text, View, Image } from 'react-native'
 import React, { useContext } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import Schedule from '../components/schedule'
-import Footer from '../components/Home Page Components/footer'
-import { AppContext, AppProvider } from '../AppContext'
+import Schedule from '../../components/schedule'
+import Footer from "../../components/Home Page Components/footer";
+
+import { AppContext, AppProvider } from '../../AppContext'
 
 
 const Interviews = ({navigation, route}) => {
-  const { scheduleData } = useContext(AppContext);
+  const { cardsData, recentJobs, selectedCategories, addRecentJob } = useContext(AppContext);
 
+  const { scheduleData } = useContext(AppContext);
+  const { selectedOptions } = route.params
   return (
-<>
+
 <View style={[styles.container]}>
    
 <View style = {{paddingBottom: 0, top: 100, left: 23}}>
@@ -32,12 +35,9 @@ const Interviews = ({navigation, route}) => {
       <Text style = {styles.headerText}>Mock Interview</Text>
       <Ionicons style = {styles.funnel} name = 'funnel-outline' size = {36} color={'white'}></Ionicons>
     </View>
+    <Footer navigation = {navigation} pass = {route.params}/>
+    <Image style = {styles.interview} source ={require('../../../assets/footer/interviewsOn.png')}/>
 </View>
-
-<Footer navigation={navigation}/>
-
-
-</>
   )
 }
 
@@ -154,4 +154,11 @@ footer: {
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,
 },
+interview:{
+  position:"absolute",
+  width: 22,
+  height: 22,
+  bottom: 26,
+  right: 61,
+}
 })

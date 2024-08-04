@@ -59,8 +59,8 @@ nameContainer:{
   wordWrap: 'break-word'
 },
 timeContainer:{
-  bottom: 45,
-  right: 70,
+  bottom: 15,
+  right: 10,
   textAlign: 'right', 
   color: 'black', 
   fontSize: 14, 
@@ -81,7 +81,7 @@ careerContainer:{
 },
 calender:{ 
     position: 'absolute',
-    left: 273,
+    left: 283,
     top: 13,
 },
 profile:{
@@ -96,7 +96,7 @@ month:{
   flexDirection: 'row',
   position: 'absolute',
   width: 22,
-  right: 32,
+  right: 25,
   top: 23,
   color: 'white', 
   fontSize: 10, 
@@ -108,7 +108,7 @@ month:{
 day:{
   position: 'absolute',
   top: 38,
-  right: 15,
+  right: 9,
   width: 56, 
   textAlign: 'center', 
   color: 'black', 
