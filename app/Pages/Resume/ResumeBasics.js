@@ -96,7 +96,7 @@ shadowProp: {
     wordWrap: 'break-word'
   },
   loadingBar:{
-    width: 25.90, 
+    width: 111, 
     height: 34, 
     backgroundColor: '#005FEE', 
     borderRadius: 25.50

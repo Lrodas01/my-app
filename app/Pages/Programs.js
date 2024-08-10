@@ -5,30 +5,16 @@ import { AppContext } from '../AppContext'
 import Websites from '../components/websites'
 import { ScrollView } from 'react-native-gesture-handler'
 import Initiatives from '../components/Initiatives'
-
+import { LogBox } from 'react-native'
 
 const Programs = ({navigation, route}) => {
+    LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+    LogBox.ignoreAllLogs();//Ignore all log notifications
 
-const { job, colleges } = route.params;
 
-const interships = [
-    {
-        name: 'Roit Games Intership',
-        image: ''
-    },
-    {
-        name: 'Engineer Intern',
-        image: require('../../assets/interships/caltech.png')
-    },
-    {
-        name: 'Urban TXT',
-        image: require('../../assets/interships/txt.png'),
-        description: 'Urban TXT (Teens Exploring Technology) is a non-profit organization dedicated to empowering young men of color from low-income communities in Los Angeles through technology, leadership, and entrepreneurship education.',
-        email: 'info@urbantxt.com',
-        web: 'urbantxt.org',
-        address: '3655 South Grand Ave.  Los Angeles, CA 90007 Ste. 220'
-    },
-]
+const { job, colleges, interns, website } = route.params;
+
+console.log('Passing in Programs', {website})
 
 
   return (
@@ -44,8 +30,14 @@ const interships = [
         <Text style = {styles.websitesTitle}>Websites we recommend</Text>
         <Text style = {styles.websitesDescription}>For {job.titleJob}, the top two recommended websites are:</Text>
     <View style = {styles.websiteContainer}>
-        <Websites name ={'CodeAcademy.com'} image={''}/>
-        <Websites name={'FreeCodeCamp.org'} image={''}/>
+        {website.map((web) => (
+            <Websites
+                name = {web.title}
+                image = {web.image}
+            />
+        ))}
+        {/* <Websites name ={'CodeAcademy.com'} image={require('../../assets/websites/code.png')}/>
+        <Websites name={'FreeCodeCamp.org'} image={require('../../assets/websites/camp.png')}/> */}
     </View>
 
     </View>
@@ -55,7 +47,7 @@ const interships = [
 
     </View>
         <View style = {styles.initiative}>
-            {interships.map((intern) => (
+            {interns.map((intern) => (
                 <Initiatives 
                 name = {intern.name} 
                 image = {intern.image}
@@ -67,8 +59,7 @@ const interships = [
             <Initiatives name={'Urban TXT'} image={require('../../assets/interns/txt.png')}/> */}
 
         </View>
-            <Image style={styles.image} source ={require('../../assets/interships/riot.png')}/>
-</ScrollView>
+        </ScrollView>
       <Footer navigation = {navigation}/>
     </View>
   )

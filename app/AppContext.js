@@ -13,7 +13,7 @@ export const AppProvider = ({ children }) => {
             {
                 titleJob: "Computer Programming",
                 descriptionJob: "Computer programming is the process of designing and writing instructions for computers to perform specific tasks or solve problems.",
-                imageURIJob: require('../assets/images/icon.png'),
+                imageURIJob: require('../assets/icons-black/computer.png'),
                 imageURIcard: require("../assets/images/temporary2.png"),
                 colleges: [
                   {
@@ -31,9 +31,49 @@ export const AppProvider = ({ children }) => {
                 ],
                 benefits: [
                   {
-                    salaryRange: "79K - 140K",
-                    oppertunities: "",
+                    title: "79K - 140K",
+                    descripition: "How much would you make? ",
+                    image: ''
                   },
+                  {
+                    title: "Oppertunities",
+                    descripition: "Higher chance for a Job",
+                    image: ''
+                  },
+                  {
+                    title: "Remote Work",
+                    descripition: "Better chance to work from home.",
+                    image: ''
+                  },
+                ],
+                websites:[
+                  {
+                    title: 'CodeAcademy.com',
+                    image: require('../assets/websites/code.png')
+                  },
+                  {
+                    title: 'FreeCodeCamp.org',
+                    image:  require('../assets/websites/camp.png')
+                  },
+              ],
+                internships: [
+                  {
+                    name: 'Roit Games Intership',
+                    image: require('../assets/interships/riot.png')
+                },
+                {
+                    name: 'Engineer Intern',
+                    image: require('../assets/interships/caltech.png')
+                },
+                {
+                    name: 'Urban TXT',
+                    image: require('../assets/interships/txt.png'),
+                    description: 'Urban TXT (Teens Exploring Technology) is a non-profit organization dedicated to empowering young men of color from low-income communities in Los Angeles through technology, leadership, and entrepreneurship education.',
+                    email: 'info@urbantxt.com',
+                    web: 'urbantxt.org',
+                    address: '3655 South Grand Ave.  Los Angeles, CA 90007 Ste. 220',
+                    imageCard: require('../assets/images/duck.webp')
+                },
                 ]
             },
             {
@@ -42,6 +82,91 @@ export const AppProvider = ({ children }) => {
                 imageURIJob: require('../assets/images/icon.png'),
                 imageURIcard: require("../assets/images/temporary2.png"),
                 salaryRange: "89K - 96K",
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "University of California",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],
+                benefits: [
+                  {
+                    title: "85K - 125K",
+                    descripition: "How much would you make?",
+                    image: ''
+                  },
+                  {
+                    title: "Flexibility",
+                    descripition: "Work from home, flexible schedule.",
+                    image: ''
+                  },
+                  {
+                    title: "Impact",
+                    descripition: "Keeps information safe.",
+                    image: ''
+                  },
+                ],
+                websites:[
+                  {
+                    title: 'cybrary.it',
+                    image: require('../assets/websites/cybrary.png')
+                  },
+                  {
+                    title: 'sans.org',
+                    image:  require('../assets/websites/sans.png')
+                  },
+              ],
+                internships: [
+                  {
+                    name: 'IBM Cybersecurity Internship',
+                    image: ''
+                },
+                {
+                    name: 'Deloitte Cyber Risk Internship',
+                    image: ''
+                },
+                {
+                    name: 'NSA Cybersecurity Internship',
+                    image: '',
+                    description: 'no data',
+                    email: 'no data',
+                    web: 'no data',
+                    address: 'no data',
+                    imageCard: '',
+                },
+                ]
+            },
+            {
+                titleJob: "Video Game Designer",
+                descriptionJob: "A software professional who creates applications for mobile devices, such as smartphones and tablets",
+                imageURIJob: require('../assets/icons-black/game.png'),
+                salaryRange: "79K - $140K",
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "University of California",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],            },
+            {
+                titleJob: "AI Engineer",
+                descriptionJob: "Responsible for developing, programming and training the complex networks of algorithms that make up AI so that they can function like a human brain",
+                imageURIJob: require('../assets/images/icon.png'),
+                salaryRange: "79K - $140K",
                 colleges: [
                   {
                     collegeName: "Stanford",
@@ -57,22 +182,6 @@ export const AppProvider = ({ children }) => {
                   }
                 ],
             },
-            {
-                titleJob: "Another Third job",
-                descriptionJob: "This is another description for a job",
-                imageURIJob: require('../assets/images/icon.png'),
-                description: "",
-                salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-            },
-            {
-                titleJob: "Another Fourth job",
-                descriptionJob: "This is another description for a job",
-                imageURIJob: require('../assets/images/icon.png'),
-                description: "",
-                salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-            },
         ],
         titleText: "Technology",
         descriptionText: "Code, software development, Python...",
@@ -85,19 +194,43 @@ export const AppProvider = ({ children }) => {
         category: "Health",
         jobs: [
             {
-                titleJob: "Medical job 1",
-                descriptionJob: "This is a description for a medical job",
-                imageURIJob: require('../assets/images/medical.webp'),
+                titleJob: "Medical Physicist",
+                descriptionJob: "Work in health care and apply their knowledge of physics to the development and use of medical radiation treatments, devices, and technologies‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ",
+                imageURIJob: require('../assets/images/icon.png'),
                 salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-            },
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "University of California",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],            },
             {
-                titleJob: "Medical job 2",
-                descriptionJob: "This is another description for a medical job",
-                imageURIJob: require('../assets/images/medical.webp'),
+                titleJob: "Physician",
+                descriptionJob: "Diagnoses and treats illnesses, performs physical exams, prescribes medication, and provides patient care.",
+                imageURIJob: require('../assets/images/icon.png'),
                 salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-            }
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "University of California",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],            }
         ],
         titleText: "Health",
         descriptionText: "Medical research, nursing, surgeon...",
@@ -113,8 +246,20 @@ export const AppProvider = ({ children }) => {
                 descriptionJob: "This is a description for a finance job",
                 imageURIJob: require('../assets/images/finance.jpg'),
                 salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-            }
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "University of California",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],            }
         ],
         titleText: "Finance",
         descriptionText: "investment banking, financial analysis...",
@@ -130,8 +275,20 @@ export const AppProvider = ({ children }) => {
                 descriptionJob: "This is a description for a Creative Arts job",
                 imageURIJob: require('../assets/images/physical.webp'),
                 salaryRange: "79K - $140K",
-                colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-            }
+                colleges: [
+                  {
+                    collegeName: "Stanford",
+                    collegeImage: require('../assets/collegeImages/stanford.png')
+                  },
+                  {
+                    collegeName: "University of California",
+                    collegeImage: require ('../assets/collegeImages/calState.png')
+                  },
+                  {
+                    collegeName: "Boston University",
+                    collegeImage: require('../assets/collegeImages/boston.png')
+                  }
+                ],            }
         ],
         titleText: "Creative Arts",
         descriptionText: "UX/UI designer, filmmaking, painter...",
@@ -147,8 +304,20 @@ export const AppProvider = ({ children }) => {
               descriptionJob: "This is a description for a Education job",
               imageURIJob: require('../assets/images/physical.webp'),
               salaryRange: "79K - $140K",
-              colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-          }
+              colleges: [
+                {
+                  collegeName: "Stanford",
+                  collegeImage: require('../assets/collegeImages/stanford.png')
+                },
+                {
+                  collegeName: "University of California",
+                  collegeImage: require ('../assets/collegeImages/calState.png')
+                },
+                {
+                  collegeName: "Boston University",
+                  collegeImage: require('../assets/collegeImages/boston.png')
+                }
+              ],          }
       ],
       titleText: "Education",
       descriptionText: "Teaching, educational administration...",
@@ -160,12 +329,25 @@ export const AppProvider = ({ children }) => {
     category: "Engineering",
     jobs: [
         {
-            titleJob: "Engineering job 1",
-            descriptionJob: "This is a description for a Engineeringjob",
-            imageURIJob: require('../assets/images/physical.webp'),
+            titleJob: "Mechanical Engineer",
+            descriptionJob: "Designs, develops, and tests mechanical systems and products like engines, machines, and tools. Works in industries such as automotive, aerospace, and manufacturing.",
+            imageURIJob: require('../assets/images/icon.png'),
             salaryRange: "79K - $140K",
-            colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-        }
+            colleges: [
+              {
+                collegeName: "Stanford",
+                collegeImage: require('../assets/collegeImages/stanford.png')
+              },
+              {
+                collegeName: "MIT",
+                collegeImage: require ('../assets/collegeImages/mit.png')
+              },
+              {
+                collegeName: "CalTech",
+                collegeImage: require('../assets/collegeImages/caltech.png')
+              }
+            ],      
+          }
     ],
     titleText: "Engineering",
     descriptionText: "civil engineering, mechanical engineering...",
@@ -181,8 +363,20 @@ export const AppProvider = ({ children }) => {
           descriptionJob: "This is a description for a Businessjob",
           imageURIJob: require('../assets/images/physical.webp'),
           salaryRange: "79K - $140K",
-          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-      }
+          colleges: [
+            {
+              collegeName: "Stanford",
+              collegeImage: require('../assets/collegeImages/stanford.png')
+            },
+            {
+              collegeName: "University of California",
+              collegeImage: require ('../assets/collegeImages/calState.png')
+            },
+            {
+              collegeName: "Boston University",
+              collegeImage: require('../assets/collegeImages/boston.png')
+            }
+          ],      }
   ],
   titleText: "Business",
   descriptionText: "entrepreneurship, marketing...",
@@ -198,8 +392,20 @@ export const AppProvider = ({ children }) => {
           descriptionJob: "This is a description for a Outer Space job",
           imageURIJob: require('../assets/images/physical.webp'),
           salaryRange: "79K - $140K",
-          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-      }
+          colleges: [
+            {
+              collegeName: "Stanford",
+              collegeImage: require('../assets/collegeImages/stanford.png')
+            },
+            {
+              collegeName: "University of California",
+              collegeImage: require ('../assets/collegeImages/calState.png')
+            },
+            {
+              collegeName: "Boston University",
+              collegeImage: require('../assets/collegeImages/boston.png')
+            }
+          ],      }
   ],
   titleText: "Outer Space",
   descriptionText: "Astronaut, Cosmologist...",
@@ -215,8 +421,20 @@ export const AppProvider = ({ children }) => {
           descriptionJob: "This is a description for a Communications job",
           imageURIJob: require('../assets/images/physical.webp'),
           salaryRange: "79K - $140K",
-          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-      }
+          colleges: [
+            {
+              collegeName: "Stanford",
+              collegeImage: require('../assets/collegeImages/stanford.png')
+            },
+            {
+              collegeName: "University of California",
+              collegeImage: require ('../assets/collegeImages/calState.png')
+            },
+            {
+              collegeName: "Boston University",
+              collegeImage: require('../assets/collegeImages/boston.png')
+            }
+          ],      }
   ],
   titleText: "Communications",
   descriptionText: "public relations, journalism...",
@@ -232,8 +450,21 @@ export const AppProvider = ({ children }) => {
           descriptionJob: "This is a description for a Writing & Lit job",
           imageURIJob: require('../assets/images/physical.webp'),
           salaryRange: "79K - 140K",
-          colleges: ["Colleges A", "Colleges B ", "Colleges C"],
-      }
+          colleges: [
+            {
+              collegeName: "Stanford",
+              collegeImage: require('../assets/collegeImages/stanford.png')
+            },
+            {
+              collegeName: "University of California",
+              collegeImage: require ('../assets/collegeImages/calState.png')
+            },
+            {
+              collegeName: "Boston University",
+              collegeImage: require('../assets/collegeImages/boston.png')
+            }
+          ],
+}
   ],
   titleText: "Writing & Lit",
   descriptionText: "Writer, author, editor...",

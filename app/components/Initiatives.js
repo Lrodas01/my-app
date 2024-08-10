@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, ImageBackground } from 'react-native'
 import React from 'react'
 
 const Initiatives = ({name, image, onPress}) => {
   return (
-    <Pressable onPress = {onPress} style = {[styles.container, styles.shadowProp]}>
+    <Pressable onPress = {onPress} >
+      <ImageBackground style = {[styles.container, styles.shadowProp]} source = {image}>
       <Text style = {styles.programTitle}>{name}</Text>
-      <View>
-        <Image style = {styles.image} source = {image}/>
-      </View>
+      {/* <View style = {styles.imageContainer}>
+        <Image style = {{width: 50, height: 50}} source = {image}/>
+      </View> */}
+      </ImageBackground>
     </Pressable>
 
   )
@@ -40,10 +42,11 @@ programTitle:{
   lineHeight: 10, 
   wordWrap: 'break-word'
 },
-image:{
-  top: 30,
-  left: 20,
-  maxWidth: 75,
-  height: 34
+imageContainer:{
+  top: 25,
+  flex: 1, 
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignContent: 'center',
 }
 })

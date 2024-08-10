@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 
-const Internships = ({internshipsName, internshipsImage}) => {
+const Internships = ({internshipsName, internshipsImage, onPress}) => {
   return (
-    <View style = {[styles.container, styles.shadowProp]}>
+    <Pressable style = {[styles.container, styles.shadowProp]} onPress={onPress}>
       <Text style = {styles.text}>{internshipsName}</Text>
       <View style = {styles.image}>
       <Image source = {internshipsImage}/>
       </View>
-    </View>
+    </Pressable>
   )
 }
 

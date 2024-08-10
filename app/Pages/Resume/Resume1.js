@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
         wordWrap: 'break-word'
       },
       loadingBar:{
-        width: 25.90, 
+        width: 148, 
         height: 34, 
         backgroundColor: '#005FEE', 
         borderRadius: 25.50

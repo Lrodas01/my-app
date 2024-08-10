@@ -30,7 +30,7 @@ const ActualHome = ({ navigation, route }) => {
 
   // console.log({selectedOptions})
 
-  console.log("Selected catergories in HomePage.js: ", selectedCategories);
+  // console.log("Selected catergories in Search.js: ", selectedCategories);
 
   
   // console.log("\nThese are the jobs\n", recentJobs);
@@ -44,7 +44,7 @@ const ActualHome = ({ navigation, route }) => {
 
   const handleSelectJob = (job) => {
       addRecentJob(job);
-      navigation.navigate('SpecificJobs', { job, colleges: job.colleges, jobs: cardsData[0].jobs });
+      navigation.navigate('SpecificJobs', { job, colleges: job.colleges, jobs: cardsData[0].jobs, interns: job.internships, benefits: job.benefits, website: job.websites });
   };
 
   
@@ -65,7 +65,7 @@ const ActualHome = ({ navigation, route }) => {
           <Text style={styles.exploreText}>Explore</Text>
         </View>
           <View style = {{flexDirection: "row"}}>
-            <Pressable style  = {[styles.resumeButton, styles.shadowProp]}  onPress = {()=> navigation.navigate('Basics') }>
+            <Pressable style  = {[styles.resumeButton, styles.shadowProp]}  onPress = {()=> navigation.navigate('No') }>
               <Text style = {styles.resumeButtonText}>Making a resume</Text>
               <Image style = {{bottom: 11, left: 5}} source = {require('../../../assets/icons-black/resume.png')}/>
             </Pressable>
@@ -151,7 +151,6 @@ const styles = StyleSheet.create({
     right: 24,
   },
   scrollContent: {
-    backgroundColor: "rgba(52, 52, 52, 0.0)",
     paddingRight: 48,
     height: "auto",
   },
@@ -229,6 +228,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   recentText: {
+    left: 45,
+    bottom: 10,
     color: "black",
     fontSize: 25,
     fontFamily: "Nunito",
@@ -236,8 +237,8 @@ const styles = StyleSheet.create({
   },
   recentContainer: {
     marginTop: 33,
-    marginLeft: 31,
-    marginRight: 31,
+    marginLeft: -20,
+    marginRight: 0,
   },
   recentContent: {
     marginTop: 18,
@@ -246,10 +247,12 @@ const styles = StyleSheet.create({
   },
   intershipContainer: {
     marginTop: 20,
-    marginLeft: 29,
-    marginRight: 29,
+    marginLeft: -20,
+    marginRight: 0,
   },
   intershipText: {
+    left: 45,
+    bottom: 10,
     color: "black",
     fontSize: 25,
     fontFamily: "Nunito",
@@ -257,11 +260,13 @@ const styles = StyleSheet.create({
   },
   careerContainer: {
     marginTop: 20,
-    marginLeft: 31,
-    marginRight: 31,
+    marginLeft: -20,
+    marginRight: 0,
     marginBottom: 20,
   },
   careerText: {
+    left: 45,
+    bottom: 10,
     color: "black",
     fontSize: 25,
     fontFamily: "Nunito",

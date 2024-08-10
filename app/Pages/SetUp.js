@@ -8,7 +8,7 @@ const SetUp = ({route, navigation}) => {
 
     const handlePress = () => {
         Alert.alert('Appointment Made');
-        navigation.goBack('ActualHome')
+        navigation.navigate('ActualHome')
     }
     
   return (

@@ -13,8 +13,8 @@ const Resume2 = ({navigation}) => {
       <Text style = {styles.headerText}>Resume for Dummies</Text>
     </View>
     <View style = {[styles.loadingBarContainer, styles.shadowProp]}>
-        <Text style = {styles.loadingBarText}>resume</Text>
         <View style = {styles.loadingBar}>
+        <Text style = {[styles.loadingBarText, {color: 'white'}]}>res</Text><Text style = {[styles.loadingBarText, {left:185.5}]}>ume</Text>
 
         </View>
     </View>
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         wordWrap: 'break-word'
       },
       loadingBar:{
-        width: 25.90, 
+        width: 185, 
         height: 34, 
         backgroundColor: '#005FEE', 
         borderRadius: 25.50

@@ -1,11 +1,13 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
-const Recommended = ( {title, description, image} ) => {
+const Recommended = ( {title, description, image, onPress} ) => {
   return (
-    <Pressable style = {[styles.container, styles.shadowProp]}>
+    <Pressable onPress = {onPress}style = {[styles.container, styles.shadowProp]}>
       <Text style = {styles.textTitle}>{title}</Text>
-      <Text style = {styles.textDescription}>Computer programming is the process of designing, writing, testing, and maintaining the code that enables compu..</Text>
+      <Text style = {styles.textDescription}>{description}</Text>
+      <Image style = {styles.searchFeature} source = {image}/>
+
     </Pressable>
   )
 }
@@ -29,6 +31,7 @@ shadowProp:{
 textTitle:{
     width: 215.44, 
     height: 22, 
+    left: 20,
     color: 'black', 
     fontSize: 17, 
     fontFamily: 'Nunito', 
@@ -37,6 +40,8 @@ textTitle:{
     wordWrap: 'break-word'
 },
 textDescription:{
+    position: 'absolute',
+    top: 24,
     left: 6,
     width: 303,
     height: 52, 
@@ -45,6 +50,13 @@ textDescription:{
     fontFamily: 'Nunito', 
     fontWeight: '400',
     lineHeight: 22, 
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
 },
+searchFeature:{
+  position: 'absolute',
+  width: 50,
+  height: 50,
+  top: 12,
+  right: 20,
+}
 })

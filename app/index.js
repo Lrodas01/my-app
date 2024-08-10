@@ -46,6 +46,7 @@ import { router } from 'expo-router'
 import { View, Text, TouchableOpacity } from 'react-native'
 import Internships from './Pages/Internships';
 import Chat from './Pages/Chat';
+import Congrats from './Pages/congrats';
 
 const App = () => {
   const handlePress = () => {
@@ -88,6 +89,7 @@ const App = () => {
         <Stack.Screen name="PageTwo" component={PageTwo} options={{ headerShown: false }} />  
         <Stack.Screen name="Internships" component={Internships} options={{ headerShown: false }} />  
         <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />  
+        <Stack.Screen name="Congrats" component={Congrats} options={{ headerShown: false }} />  
 
     </Stack.Navigator>
 </AppProvider>   

@@ -19,7 +19,7 @@ const TemplateThree = ({navigation}) => {
         <View style = {styles.header}>
             <View style = {{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
             <Text style = {styles.headerText}>The Basics</Text>
-            <Pressable style = {styles.doneButton} onPress = {() => navigation.navigate('Home')}>
+            <Pressable style = {styles.doneButton} onPress = {() => navigation.navigate('Congrats')}>
                 <Text style = {styles.doneButtonText}>done</Text>
             </Pressable>
 
@@ -59,7 +59,7 @@ const TemplateThree = ({navigation}) => {
     </ScrollView>
 
     <View style ={{position: 'absolute', right: 70, top: 400}}>
-            {showComponent && <Artificial onPress={()=>navigation.navigate('')}/>}
+            {showComponent && <Artificial onPress={()=>navigation.navigate('Chat')}/>}
         </View>
 
     </View>

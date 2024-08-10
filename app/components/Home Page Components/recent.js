@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   jobTitle: {
-    width: 140, 
+    width: 130, 
     textAlign: 'center', 
     color: 'black', 
     fontSize: 14, 
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     image: {
     position: 'absolute',
     width:  50,
+    maxWidth: 100,
     height: 50,
     top: 42,
     left: 41,

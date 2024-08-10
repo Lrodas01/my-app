@@ -50,7 +50,7 @@ image:{
   position: 'absolute',
   left: 19,
   top: 19,
-  width: 75, 
+  maxWidth: 75, 
   height: 75
 },
 })

@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import Footer from '../components/Home Page Components/footer'
 
 const Internships = ({route, navigation}) => {
 
+
 const { intern } = route.params
+
+console.log('Passing in Internships', {intern})
 
   return (
     <View style = {styles.container}>
@@ -32,7 +35,7 @@ const { intern } = route.params
             </View>
         </View>
         <View style = {styles.imageContainer}>
-            <Image style = {styles.image} source = {require('../../assets/images/icon.png')}/>
+            <Image style = {styles.image} source = {intern.imageCard}/>
         </View>
 
 
@@ -139,5 +142,10 @@ const styles = StyleSheet.create({
         fontWeight: '400', 
         lineHeight: 36, 
         wordWrap: 'break-word'
+    },
+    image:{
+        width: '100%',
+        height: 226,
+        top: 72
     }
 })

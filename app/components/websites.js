@@ -1,18 +1,11 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import React from 'react'
 
 const Websites = ({name, image}) => {
   return (
-    <View style = {styles.container}>
+    <ImageBackground style = {styles.container}  source={image}>
       <Text style = {styles.titleText}>{name}</Text>
-    <View>
-    <View style = {styles.imageContainer}>
-        <Text>{image}</Text>
-    </View>
-
-    <Image/>
-    </View>
-    </View>
+    </ImageBackground>
   )
 }
 
@@ -24,7 +17,8 @@ container:{
     width: 132, 
     height: 125,
     backgroundColor: 'white', 
-    borderRadius: 7
+    borderRadius: 7,
+    
 },
 titleText:{
     top: 11,
@@ -36,8 +30,10 @@ titleText:{
     wordWrap: 'break-word'
 },
 imageContainer:{
-    position: 'absolute',
-    top: 29,
-    left: 16,
+  top: 8,
+  flex: 1, 
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignContent: 'center',
 }
 })

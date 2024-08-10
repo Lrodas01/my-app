@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
     },
     name:{
-      right: 4,
-      width: 140, 
+      top: 0,
+      width: 130, 
       textAlign: 'center', 
       color: 'black', 
       fontSize: 14, 

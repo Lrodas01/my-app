@@ -13,8 +13,8 @@ const Resume3 = ({navigation}) => {
       <Text style = {styles.headerText}>Resume for Dummies</Text>
     </View>
     <View style = {[styles.loadingBarContainer, styles.shadowProp]}>
-        <Text style = {styles.loadingBarText}>resume</Text>
         <View style = {styles.loadingBar}>
+        <Text style = {styles.loadingBarText}>resume</Text>
 
         </View>
     </View>
@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
       loadingBarText:{
         position: 'absolute',
         top: 5,
-        left: 159,
+        left: 153,
         textAlign: 'center', 
-        color: 'black', 
+        color: 'white', 
         fontSize: 17, 
         fontFamily: 'Nunito', 
         fontWeight: '700', 
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         wordWrap: 'break-word'
       },
       loadingBar:{
-        width: 25.90, 
+        width: 222, 
         height: 34, 
         backgroundColor: '#005FEE', 
         borderRadius: 25.50

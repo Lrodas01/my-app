@@ -35,7 +35,7 @@ const Home = ({ navigation }) => {
         {/* <Pressable style={styles.buttonContainer} onPress={() => navigation.goBack('Welcome')}>
           <Text style={styles.textButton}>Start finding your interest</Text>
         </Pressable> */}
-        <Text style={styles.welcomeText}>Basics</Text>
+        <Text style={styles.welcomeText}>Career Interests</Text>
       </View>
 
       <View style = {[styles.loadingBarContainer, styles.shadowDown]}>

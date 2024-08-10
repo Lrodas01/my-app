@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
-const Benefits = ({ benefit, description }) => {
+const Benefits = ({ title, description }) => {
 
 
 
@@ -11,7 +11,7 @@ const Benefits = ({ benefit, description }) => {
           <View style = {{width: 24, height: 24, position: 'relative'}}>
             <Image source={require('../../assets/images/moneybag.png')}/>
           </View>
-          <Text style = {styles.titleSalary}>{benefit}</Text>
+          <Text style = {styles.titleSalary}>{title}</Text>
           <Text style = {styles.descriptionSalary}>{description}</Text>
         </View>
     </View>

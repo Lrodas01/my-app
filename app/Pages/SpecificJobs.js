@@ -6,6 +6,7 @@ import {
   ScrollView,
   Pressable,
   ImageBackground,
+  LogBox
 } from "react-native";
 import React, { useContext } from "react";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,10 +17,14 @@ import Benefits from "../components/benefits";
 import { useLocalSearchParams } from "expo-router";
 
 const SpecificJobs = ({ route, navigation }) => {
+
+  LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+  LogBox.ignoreAllLogs();//Ignore all log notifications
   const { cardsData } = useContext(AppContext);
 
-  const { job, colleges, collegesImage, jobs } = route.params;
+  const { job, colleges, collegesImage, jobs, interns, benefits, website } = route.params;
 
+    console.log ('Websites passing in SpecificJobs', {website})
   // console.log(route.params);
 
   return (
@@ -49,9 +54,19 @@ const SpecificJobs = ({ route, navigation }) => {
           <Text style={styles.benefitsText}>Benefits</Text>
 
           <View style={styles.benefitsDescriptionContainer}>
-            <Benefits benefit = {'79K - 140K'} description={'How much would you make? '}/>
+            {/* //This is just a placeholder, I will make this display individual information*/}
+            {/* <Benefits benefit = {'79K - 140K'} description={'How much would you make? '}/>
             <Benefits benefit= {'Opportunities'} description={'Higher chance for a Job'}/>
-            <Benefits benefit={'Remote Work'} description={'Better chance to work from home.'}/>
+            <Benefits benefit={'Remote Work'} description={'Better chance to work from home.'}/> */}
+
+            {benefits.map((benefit) =>(
+              <Benefits
+                title = {benefit.title}
+                description={benefit.descripition}
+              />
+             ))}
+
+
           </View>
         </View>
 
@@ -77,7 +92,7 @@ const SpecificJobs = ({ route, navigation }) => {
           </Text>
           <Pressable
             style={styles.programsButton}
-            onPress={() => navigation.navigate("Programs", { job })}
+            onPress={() => navigation.navigate("Programs", { job, interns, website })}
           >
             <View style={[styles.programsShownContainer, styles.shadowProp]}>
               <Text style={styles.programsTextContainer}>
@@ -138,11 +153,10 @@ const styles = StyleSheet.create({
   jobInformation: {
     top: 20,
     width: 432,
-    height: 130,
     paddingLeft: 24,
     paddingRight: 24,
     paddingTop: 11,
-    paddingBottom: 11,
+    paddingBottom: 31,
     borderRadius: 8,
     flexDirection: "column",
     justifyContent: "flex-start",
